@@ -4,64 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <title>AvirumApps - AI-Powered Apps for Everyday Life</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>AvirumApps</title>
 </head>
 <body>
-    <header class="main-header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i data-lucide="sparkles"></i>
-                    <span class="brand">AvirumApps</span>
-                </div>
-                <nav>
-                    <a href="index.html" class="active">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="terms.html">Terms</a>
-                </nav>
+    <header>
+        <nav class="container">
+            <a href="/" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3L20 7.5V16.5L12 21L4 16.5V7.5L12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 8L16 10.5V15.5L12 18L8 15.5V10.5L12 8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>AvirumApps</span>
+            </a>
+            <div class="nav-links">
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
             </div>
-        </div>
+        </nav>
     </header>
 
-    <main>
-        <section class="hero-section">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>AI-Powered Apps for Everyday Life</h1>
-                    <p>Transforming the way you interact with technology through intelligent, intuitive applications.</p>
-                </div>
-            </div>
+    <main class="container">
+        <section class="hero">
+            <h1>AI-Powered Apps for Everyday Life</h1>
+            <p>Transforming the way you interact with technology through intelligent, intuitive applications.</p>
         </section>
 
-        <section class="featured-apps">
-            <div class="container">
-                <h2>Our Apps</h2>
-                <div class="app-grid">
-                    <div class="app-card">
-                        <div class="app-icon">
-                            <i data-lucide="pencil"></i>
-                        </div>
-                        <h3>TracePlay ABC</h3>
-                        <p>An educational app helping children learn to write letters through AI-guided tracing.</p>
-                        <div class="app-links">
-                            <a href="privacy-traceplay.html" class="btn-secondary">Privacy Policy</a>
-                        </div>
-                    </div>
-                    <!-- More app cards can be added here -->
-                </div>
-            </div>
+        <section class="about">
+            <h2>About AvirumApps</h2>
+            <p>AvirumApps is a boutique development studio specializing in consumer applications powered by artificial intelligence. As a solo developer, I create innovative solutions that make AI technology accessible and useful in everyday life.</p>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 AvirumApps. All rights reserved.</p>
-        </div>
+    <footer class="container">
+        <p>&copy; 2025 AvirumApps</p>
     </footer>
-
-    <script>
-        lucide.createIcons();
-    </script>
 </body>
 </html>
