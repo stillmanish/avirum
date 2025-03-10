@@ -31,6 +31,43 @@ main {
     padding: 0 1rem;
 }
 
+.app-links {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.app-links h2 {
+    margin-top: 0;
+    color: #2c3e50;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.app-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.app-links li {
+    margin: 1rem 0;
+}
+
+.app-links a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.app-links a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
 .terms {
     background: white;
     padding: 2rem;
