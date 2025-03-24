@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimelessWords Concept Admin Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.apple-cloudkit.com/ck/2/cloudkit.js"></script>
+    <style>
+        .concept-card {
+            border-left: 4px solid #007bff;
+        }
+        .draft {
+            border-left-color: #ffc107;
+        }
+        .approved {
+            border-left-color: #28a745;
+        }
+        .published {
+            border-left-color: #17a2b8;
+        }
+        .principle-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            padding: 12px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">TimelessWords Concept Admin</a>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card mb-4">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0">Upcoming Concepts</h5>
+                        <button id="refreshBtn" class="btn btn-sm btn-outline-primary">Refresh</button>
+                    </div>
+                    <div class="card-body p-0">
+                        <div id="conceptList" class="list-group list-group-flush">
+                            <!-- Concepts will be loaded here -->
+                            <div class="list-group-item text-center text-muted p-4">
+                                Loading concepts...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Schedule Status</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Next Monday: <span id="mondayDate">-</span></p>
+                        <p class="card-text">Next Thursday: <span id="thursdayDate">-</span></p>
+                        <p class="card-text mb-3">Generation Status: <span id="generationStatus" class="badge bg-secondary">Unknown</span></p>
+                        
+                        <button id="generateBtn" class="btn btn-primary w-100">Generate Next Week's Concepts</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 id="editingTitle">Select a Concept</h5>
+                        <span id="statusBadge" class="badge bg-secondary">No concept selected</span>
+                    </div>
+                    <div class="card-body">
+                        <form id="conceptForm">
+                            <input type="hidden" id="recordId">
+                            <input type="hidden" id="conceptId">
+                            
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="title">
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="historicalFigureName" class="form-label">Historical Figure</label>
+                                    <input type="text" class="form-control" id="historicalFigureName" disabled>
+                                </div>
+                                <div class="col">
+                                    <label for="historicalFigureEra" class="form-label">Era</label>
+                                    <input type="text" class="form-control" id="historicalFigureEra" disabled>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="storyText" class="form-label">Story Text</label>
+                                <textarea class="form-control" id="storyText" rows="6"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="callToAction" class="form-label">Call to Action</label>
+                                <textarea class="form-control" id="callToAction" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="quote" class="form-label">Quote</label>
+                                <textarea class="form-control" id="quote" rows="2"></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label class="form-label">Key Principles</label>
+                                <div id="principlesContainer" class="mt-2">
+                                    <!-- Principles will be loaded here -->
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="publishDate" class="form-label">Publish Date</label>
+                                    <input type="date" class="form-control" id="publishDate">
+                                </div>
+                                <div class="col">
+                                    <label for="status" class="form-label">Status</label>
+                                    <select class="form-control" id="status">
+                                        <option value="draft">Draft</option>
+                                        <option value="approved">Approved</option>
+                                        <option value="published">Published</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex justify-content-end gap-2">
+                                <button type="button" class="btn btn-outline-secondary" id="cancelBtn">Cancel</button>
+                                <button type="button" class="btn btn-primary" id="saveBtn">Save Changes</button>
+                                <button type="button" class="btn btn-success" id="approveBtn">Approve & Publish</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // CloudKit configuration
+        const container = CloudKit.container({
+            containerIdentifier: 'iCloud.com.avirumllc.historychat',
+            apiToken: 'eDu-OEoxFUxxzZ3cC5cr6bqfA4d_EqFOVohehQrHmAh_3GH-gGECh9DV629HCD3oZPa3ivCZcFmOr453IIkvAkKOWkyl6mwFTrsUAJoQiGy-pYACM9DQTWzPYL1SqadyVNpsBzD5f5FUtqmcGQBcQ09NF-9sQokCIfETSRdp1qv6sIdPFwi4HDr1CFh7WI4JsdTaOfafTM-5fcncqBOw3EyMNIpbVmb4Gz8lV46hK3HLxZjp3fDDD_PFKgDIiGQTxtPAqJzN0NKVmOlPwxYDvP9uWka6X3QCYgnEMXo3Cv8iWeGTGivqlgMnSguJKUIauFSmsqG7ExdHJkq1sIwK6cExBRQKPlYeThjnj1_XI7zCUY0LkDHdansr3VJTKqpB9WrgrrKeupv6VYBK60xU0Ah3IqXkuhBa9xW2lHOKnyEf_-zY9jz_btMg4lbOUisOtIxEPb7vmuNhIyY2dxRQPLxa6oMo8QotCJBTvJKOl6Qvtw1oRmBrZKp_yzgDOdv2FBRu3GmWhgey0r2yP72fQSLXYsYpzBI1WdfpEzOF3pH7Cr4q2zxedubOFX9-WN3sE7EpqXUXVI4KRyYAv5AiMmZ8ui9wNPD5IRZ9fo-1pRImAvlqFDK82H64l1068mRM6ueTh_Pd4x2C38ar5hTs3Bl1cfasuegInE2_9S-Gao1cBXmjeHAZoO840iQ8F68yVqq6aXInFwLBCxwTVwPusH2LuImin9QQoeqC9n5kLbotEKp_WP4dNHCm2Br50Tqds8rICmjhQ4WLVxF-n9UaSJh8if_YCDuYrLiMTZ-AkqIce1Y48mgCoYOfQe9Mib_tIYm5fOlmVuom2YlHfcUHdg0SuH9dk5zorJtpRLgBYHcLe9a6frbh4FgzvRA8AagTYfBaoCOkn9NQmmsvk1UUsxlWP5R33WJQigP6JvFx9M8OYAsgVeh6hz_a3b5PTUxMpGl0laFGdmnHZDgy6s3ZKBr04o2kyRwWO062_5gBs8lplIaCISD5dzAPm3aw2qdn5-MdLpsnhHAakm_CTMJ89PmCxmCrC19QNaIJcVouZCosqF8UQLQIqjOwi2Oi2TJoZyunamcHtT_1I34EEIFn5jfY2DRgIuXvSDcaKUWoojpZIGPgXa211cb1uupNyRpBWkc5KhLS13ufyCzBfQaXAIfIuqsia0ogQfo8eU4Qo2OKqFMTePG5LV_dswaqF7iDZI2z6Tiyc4RKRGMA87pAXvLevUeudkXpVrkeI_bal1vKaITeFWsXrHlM3p7KHDlNSImAx5HrKVlLztrw9Kq9h8rW1y1s6tKSVtlW6N4S8oK8Sc1Ks5geYJwFVEiMhL8ARI0ym-4aR7XUEX-h5TIZKft36dZ0-DVd6YK93Ni2mcu6w4xeSm5ZPn2_XtUfRb134rAN7oxFsJs-UJzDbtznXdD0_81v9qUf2_3SkO4jVInqyec-_ZSpwlfRmHcL7vjYa6tnMO7Rpz9pV1eiQNegkEFbS-PTRaFqaoMlJY0_OtdOBzhaJfJWm0lW02QivI6WbW7gNU57Q5es1ikmyNl5RwZfTgHX8sbQnbhHO_VxsGvmxq8-sPLCSgRubFeAjOqx0yS8VQ0acKDljuloPJEy1IJMNRBBSV9Ij1sip5ifTt7m_03GM4g0ylMUXWQVXWu_M6V45eVgezIUi1fzdLLf2zFGB_Y5lUirxWtH', // Get this from CloudKit Dashboard -> Settings -> API Access
+            environment: CloudKit.Environment.DEVELOPMENT
+        });
+        
+        const privateDB = container.privateCloudDatabase;
+        let selectedRecord = null;
+        
+        // Authentication
+        container.setUpAuth().then(function(userInfo) {
+            if (userInfo) {
+                console.log('User is authenticated:', userInfo);
+                initDashboard();
+            } else {
+                console.log('User is not authenticated');
+                const loginBtn = document.createElement('button');
+                loginBtn.textContent = 'Sign in with Apple ID';
+                loginBtn.className = 'btn btn-primary';
+                loginBtn.onclick = function() {
+                    container.whenUserSignsIn().then(initDashboard);
+                };
+                document.getElementById('conceptList').innerHTML = '';
+                document.getElementById('conceptList').appendChild(loginBtn);
+            }
+        });
+        
+        // Initialize dashboard after authentication
+        function initDashboard() {
+            loadDraftConcepts();
+            updateScheduleDisplay();
+            
+            // Set up event listeners
+            document.getElementById('refreshBtn').addEventListener('click', loadDraftConcepts);
+            document.getElementById('generateBtn').addEventListener('click', generateNextWeekConcepts);
+            document.getElementById('saveBtn').addEventListener('click', saveCurrentConcept);
+            document.getElementById('approveBtn').addEventListener('click', approveCurrentConcept);
+            document.getElementById('cancelBtn').addEventListener('click', clearForm);
+        }
+        
+        // Update schedule display
+        function updateScheduleDisplay() {
+            const today = new Date();
+            const nextMonday = getNextDayOfWeek(today, 1); // 1 = Monday
+            const nextThursday = getNextDayOfWeek(today, 4); // 4 = Thursday
+            
+            document.getElementById('mondayDate').textContent = formatDate(nextMonday);
+            document.getElementById('thursdayDate').textContent = formatDate(nextThursday);
+            
+            // Check generation status
+            checkGenerationStatus();
+        }
+        
+        // Check if concepts are generated for current week
+        function checkGenerationStatus() {
+            const today = new Date();
+            const startOfWeek = getStartOfWeek(today);
+            
+            const query = {
+                recordType: 'ConceptSchedule',
+                filterBy: [
+                    { 
+                        fieldName: 'weekStartDate', 
+                        comparator: CloudKit.QueryFilterComparator.EQUALS, 
+                        fieldValue: { value: startOfWeek }
+                    }
+                ]
+            };
+            
+            privateDB.performQuery(query).then(function(response) {
+                const statusBadge = document.getElementById('generationStatus');
+                if (response.records && response.records.length > 0) {
+                    const record = response.records[0];
+                    const isGenerated = record.fields.isGenerated?.value === 1;
+                    const isReviewed = record.fields.isReviewed?.value === 1;
+                    
+                    if (isGenerated && isReviewed) {
+                        statusBadge.textContent = 'Generated & Reviewed';
+                        statusBadge.className = 'badge bg-success';
+                    } else if (isGenerated) {
+                        statusBadge.textContent = 'Generated, Needs Review';
+                        statusBadge.className = 'badge bg-warning';
+                    } else {
+                        statusBadge.textContent = 'Not Generated';
+                        statusBadge.className = 'badge bg-danger';
+                    }
+                } else {
+                    statusBadge.textContent = 'Not Generated';
+                    statusBadge.className = 'badge bg-danger';
+                }
+            }).catch(function(error) {
+                console.error('Error checking generation status:', error);
+                document.getElementById('generationStatus').textContent = 'Error';
+                document.getElementById('generationStatus').className = 'badge bg-danger';
+            });
+        }
+        
+        // Load draft concepts from CloudKit
+        function loadDraftConcepts() {
+            const query = {
+                recordType: 'DraftConcept',
+                sortBy: [{ fieldName: 'publishDate', ascending: true }]
+            };
+            
+            const conceptList = document.getElementById('conceptList');
+            conceptList.innerHTML = '<div class="list-group-item text-center text-muted p-4">Loading concepts...</div>';
+            
+            return privateDB.performQuery(query).then(function(response) {
+                const records = response.records || [];
+                conceptList.innerHTML = '';
+                
+                if (records.length === 0) {
+                    conceptList.innerHTML = '<div class="list-group-item text-center text-muted p-4">No concepts found</div>';
+                    return;
+                }
+                
+                records.forEach(function(record) {
+                    const fields = record.fields;
+                    const title = fields.title?.value || 'Untitled';
+                    const publishDate = new Date(fields.publishDate?.value || Date.now());
+                    const status = fields.status?.value || 'draft';
+                    
+                    const listItem = document.createElement('a');
+                    listItem.className = `list-group-item list-group-item-action concept-card ${status}`;
+                    listItem.href = '#';
+                    
+                    // Add status badge
+                    const statusClass = status === 'draft' ? 'bg-warning' : 
+                                      status === 'approved' ? 'bg-success' : 'bg-primary';
+                    
+                    listItem.innerHTML = `
+                        <div class="d-flex w-100 justify-content-between">
+                            <h6 class="mb-1">${title}</h6>
+                            <span class="badge ${statusClass}">${status}</span>
+                        </div>
+                        <p class="mb-1 small text-muted">Publish: ${formatDate(publishDate)}</p>
+                    `;
+                    
+                    listItem.addEventListener('click', function() {
+                        loadConceptDetails(record);
+                    });
+                    
+                    conceptList.appendChild(listItem);
+                });
+                
+                // Load the first concept by default if available
+                if (records.length > 0) {
+                    loadConceptDetails(records[0]);
+                }
+            }).catch(function(error) {
+                console.error('Error loading concepts:', error);
+                conceptList.innerHTML = `<div class="list-group-item text-center text-danger p-4">
+                    Error loading concepts: ${error.message || 'Unknown error'}
+                </div>`;
+            });
+        }
+        
+        // Load and display concept details
+        function loadConceptDetails(record) {
+            selectedRecord = record;
+            const fields = record.fields;
+            
+            document.getElementById('recordId').value = record.recordName;
+            document.getElementById('conceptId').value = fields.conceptID?.value || '';
+            document.getElementById('title').value = fields.title?.value || '';
+            document.getElementById('historicalFigureName').value = fields.historicalFigureName?.value || '';
+            document.getElementById('historicalFigureEra').value = fields.historicalFigureEra?.value || '';
+            document.getElementById('storyText').value = fields.storyText?.value || '';
+            document.getElementById('callToAction').value = fields.callToAction?.value || '';
+            document.getElementById('quote').value = fields.quote?.value || '';
+            
+            // Format publish date for the input field
+            const publishDate = new Date(fields.publishDate?.value || Date.now());
+            const formattedDate = publishDate.toISOString().split('T')[0];
+            document.getElementById('publishDate').value = formattedDate;
+            
+            document.getElementById('status').value = fields.status?.value || 'draft';
+            
+            // Update the status badge
+            const status = fields.status?.value || 'draft';
+            const statusBadge = document.getElementById('statusBadge');
+            statusBadge.textContent = status.charAt(0).toUpperCase() + status.slice(1);
+            statusBadge.className = `badge ${status === 'draft' ? 'bg-warning' : status === 'approved' ? 'bg-success' : 'bg-primary'}`;
+            
+            // Update form title
+            document.getElementById('editingTitle').textContent = `Editing: ${fields.title?.value || 'Untitled Concept'}`;
+            
+            // Load principles
+            loadPrinciples(fields.keyPrinciples?.value || []);
+        }
+        
+        // Load principles from references
+        function loadPrinciples(principleRefs) {
+            const principlesContainer = document.getElementById('principlesContainer');
+            principlesContainer.innerHTML = '';
+            
+            if (!principleRefs || principleRefs.length === 0) {
+                principlesContainer.innerHTML = '<p class="text-muted">No principles found</p>';
+                return;
+            }
+            
+            // Show a loading message
+            principlesContainer.innerHTML = '<p class="text-muted">Loading principles...</p>';
+            
+            // Fetch each principle record
+            const promises = principleRefs.map(function(ref) {
+                return privateDB.fetchRecord({ recordName: ref.recordName });
+            });
+            
+            Promise.all(promises).then(function(results) {
+                principlesContainer.innerHTML = '';
+                
+                results.forEach(function(result, index) {
+                    const principle = result.record;
+                    const fields = principle.fields;
+                    
+                    const principleDiv = document.createElement('div');
+                    principleDiv.className = 'principle-card';
+                    principleDiv.innerHTML = `
+                        <input type="hidden" class="principle-id" value="${principle.recordName}">
+                        <div class="mb-2">
+                            <label class="form-label small text-muted">Title</label>
+                            <input type="text" class="form-control principle-title" value="${fields.title?.value || ''}">
+                        </div>
+                        <div class="mb-0">
+                            <label class="form-label small text-muted">Description</label>
+                            <textarea class="form-control principle-description" rows="2">${fields.description?.value || ''}</textarea>
+                        </div>
+                    `;
+                    
+                    principlesContainer.appendChild(principleDiv);
+                });
+            }).catch(function(error) {
+                console.error('Error loading principles:', error);
+                principlesContainer.innerHTML = `<p class="text-danger">Error loading principles: ${error.message || 'Unknown error'}</p>`;
+            });
+        }
+        
+        // Save changes to a concept
+        function saveCurrentConcept() {
+            if (!selectedRecord) {
+                alert('No concept selected');
+                return;
+            }
+            
+            const recordId = document.getElementById('recordId').value;
+            
+            // Get form values
+            const title = document.getElementById('title').value;
+            const storyText = document.getElementById('storyText').value;
+            const callToAction = document.getElementById('callToAction').value;
+            const quote = document.getElementById('quote').value;
+            const publishDate = new Date(document.getElementById('publishDate').value);
+            const status = document.getElementById('status').value;
+            
+            // Show saving indicator
+            const saveBtn = document.getElementById('saveBtn');
+            const originalText = saveBtn.textContent;
+            saveBtn.textContent = 'Saving...';
+            saveBtn.disabled = true;
+            
+            // Get the record to update
+            privateDB.fetchRecord({ recordName: recordId }).then(function(response) {
+                const record = response.record;
+                
+                // Update the fields
+                record.fields.title.value = title;
+                record.fields.storyText.value = storyText;
+                record.fields.callToAction.value = callToAction;
+                record.fields.quote.value = quote;
+                record.fields.publishDate.value = publishDate;
+                record.fields.status.value = status;
+                record.fields.lastEditDate.value = new Date();
+                
+                // Save the updated record
+                return privateDB.saveRecord(record);
+            }).then(function() {
+                // Save principles
+                return savePrinciples();
+            }).then(function() {
+                alert('Concept saved successfully');
+                
+                // Reload the concept list
+                loadDraftConcepts();
+            }).catch(function(error) {
+                console.error('Error saving concept:', error);
+                alert('Error saving concept: ' + (error.message || 'Unknown error'));
+            }).finally(function() {
+                // Reset save button
+                saveBtn.textContent = originalText;
+                saveBtn.disabled = false;
+            });
+        }
+        
+        // Save updates to principles
+        function savePrinciples() {
+            const principles = document.querySelectorAll('.principle-card');
+            const promises = [];
+            
+            principles.forEach(function(principleDiv) {
+                const principleId = principleDiv.querySelector('.principle-id').value;
+                const title = principleDiv.querySelector('.principle-title').value;
+                const description = principleDiv.querySelector('.principle-description').value;
+                
+                const promise = privateDB.fetchRecord({ recordName: principleId }).then(function(response) {
+                    const record = response.record;
+                    
+                    record.fields.title.value = title;
+                    record.fields.description.value = description;
+                    
+                    return privateDB.saveRecord(record);
+                });
+                
+                promises.push(promise);
+            });
+            
+            return Promise.all(promises);
+        }
+        
+        // Approve and publish a concept
+        function approveCurrentConcept() {
+            // Set status to approved
+            document.getElementById('status').value = 'approved';
+            
+            // Save the concept
+            saveCurrentConcept();
+        }
+        
+        // Generate concepts for next week
+        function generateNextWeekConcepts() {
+            if (!confirm('This will generate new concepts for next week. Continue?')) {
+                return;
+            }
+            
+            const generateBtn = document.getElementById('generateBtn');
+            const originalText = generateBtn.textContent;
+            generateBtn.textContent = 'Generating...';
+            generateBtn.disabled = true;
+            
+            // Create a new ConceptSchedule record
+            const startOfWeek = getStartOfWeek(new Date());
+            
+            // First check if we already have a record for this week
+            const query = {
+                recordType: 'ConceptSchedule',
+                filterBy: [
+                    { 
+                        fieldName: 'weekStartDate', 
+                        comparator: CloudKit.QueryFilterComparator.EQUALS, 
+                        fieldValue: { value: startOfWeek }
+                    }
+                ]
+            };
+            
+            privateDB.performQuery(query).then(function(response) {
+                if (response.records && response.records.length > 0) {
+                    // Already have a record for this week
+                    alert('Concepts for this week have already been generated');
+                    return Promise.reject('Already generated');
+                }
+                
+                // Create a new record
+                const record = {
+                    recordType: 'ConceptSchedule',
+                    fields: {
+                        weekStartDate: { value: startOfWeek },
+                        isGenerated: { value: 1 },
+                        isReviewed: { value: 0 }
+                    }
+                };
+                
+                return privateDB.saveRecord(record);
+            }).then(function() {
+                alert('Concept generation has been triggered. Check back soon for new concepts.');
+                
+                // Reload the dashboard
+                loadDraftConcepts();
+                updateScheduleDisplay();
+            }).catch(function(error) {
+                if (error !== 'Already generated') {
+                    console.error('Error generating concepts:', error);
+                    alert('Error generating concepts: ' + (error.message || 'Unknown error'));
+                }
+            }).finally(function() {
+                generateBtn.textContent = originalText;
+                generateBtn.disabled = false;
+            });
+        }
+        
+        // Clear the form
+        function clearForm() {
+            selectedRecord = null;
+            document.getElementById('conceptForm').reset();
+            document.getElementById('editingTitle').textContent = 'Select a Concept';
+            document.getElementById('statusBadge').textContent = 'No concept selected';
+            document.getElementById('statusBadge').className = 'badge bg-secondary';
+            document.getElementById('principlesContainer').innerHTML = '';
+        }
+        
+        // Utility functions
+        function getNextDayOfWeek(date, dayOfWeek) {
+            const resultDate = new Date(date.getTime());
+            resultDate.setDate(date.getDate() + (7 + dayOfWeek - date.getDay()) % 7);
+            return resultDate;
+        }
+        
+        function getStartOfWeek(date) {
+            const result = new Date(date);
+            const day = result.getDay();
+            const diff = result.getDate() - day + (day === 0 ? -6 : 1);
+            result.setDate(diff);
+            result.setHours(0, 0, 0, 0);
+            return result;
+        }
+        
+        function formatDate(date) {
+            return date.toLocaleDateString('en-US', { 
+                weekday: 'short', 
+                month: 'short', 
+                day: 'numeric' 
+            });
+        }
+    </script>
+</body>
+</html>
