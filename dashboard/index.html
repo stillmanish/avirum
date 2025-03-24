@@ -235,23 +235,57 @@
             const privateDB = container.privateCloudDatabase;
             let selectedRecord = null;
             
+            // Show loading message
+            document.getElementById('conceptList').innerHTML = '<div class="list-group-item text-center text-muted p-4">Checking authentication...</div>';
+            
             // Authentication
             container.setUpAuth().then(function(userInfo) {
                 if (userInfo) {
                     console.log('User is authenticated:', userInfo);
-                    initDashboard();
+                    document.getElementById('conceptList').innerHTML = '<div class="list-group-item text-center text-success p-4">Successfully authenticated! Loading data...</div>';
+                    setTimeout(initDashboard, 1000); // Short delay to show the success message
                 } else {
                     console.log('User is not authenticated');
-                    const loginBtn = document.createElement('button');
-                    loginBtn.textContent = 'Sign in with Apple ID';
-                    loginBtn.className = 'btn btn-primary';
-                    loginBtn.onclick = function() {
-                        container.whenUserSignsIn().then(initDashboard);
-                    };
-                    document.getElementById('conceptList').innerHTML = '';
-                    document.getElementById('conceptList').appendChild(loginBtn);
+                    showAppleLogin();
                 }
+            }).catch(function(error) {
+                console.error('Error setting up authentication:', error);
+                document.getElementById('conceptList').innerHTML = `<div class="list-group-item text-center text-danger p-4">
+                    Authentication error: ${error.message || 'Unknown error'}
+                </div>`;
+                showAppleLogin();
             });
+            
+            // Function to show Apple login button
+            function showAppleLogin() {
+                const loginContainer = document.createElement('div');
+                loginContainer.className = 'text-center p-4';
+                loginContainer.innerHTML = `
+                    <p class="mb-3">You need to sign in with your Apple ID to access the dashboard</p>
+                    <button id="apple-login-btn" class="btn btn-primary">Sign in with Apple ID</button>
+                `;
+                document.getElementById('conceptList').innerHTML = '';
+                document.getElementById('conceptList').appendChild(loginContainer);
+                
+                document.getElementById('apple-login-btn').addEventListener('click', function() {
+                    this.disabled = true;
+                    this.textContent = 'Signing in...';
+                    
+                    container.whenUserSignsIn()
+                        .then(function(userInfo) {
+                            console.log('User signed in:', userInfo);
+                            document.getElementById('conceptList').innerHTML = '<div class="list-group-item text-center text-success p-4">Successfully signed in! Loading data...</div>';
+                            setTimeout(initDashboard, 1000); // Short delay to show the success message
+                        })
+                        .catch(function(error) {
+                            console.error('Error signing in:', error);
+                            document.getElementById('conceptList').innerHTML = `<div class="list-group-item text-center text-danger p-4">
+                                Sign-in error: ${error.message || 'Unknown error'}
+                            </div>`;
+                            showAppleLogin();
+                        });
+                });
+            }
             
             // Initialize dashboard after authentication
             function initDashboard() {
