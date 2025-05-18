@@ -3,122 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyBusinessLedger - Simplify Your Business Finances</title>
-    <meta name="description" content="Automatically track expenses and income from your Gmail, powered by Apple Sign In for secure authentication">
+    <title>Ledgerly - Simplify Your Business Finances</title>
+    <meta name="description" content="Add transactions by text, image, or Gmail tagging - all securely stored in your personal iCloud account">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="/styles.css" rel="stylesheet">
+    <style>
+        .accordion-content { display: none; }
+        .accordion-item.open .accordion-content { display: block; }
+    </style>
 </head>
 <body class="bg-white text-gray-800">
-    <!-- Header Section -->
-    <header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div class="container flex h-16 items-center justify-between">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+        <div class="container flex h-16 items-center justify-between mx-auto px-4">
             <div class="flex items-center gap-2">
-                <img src="/images/ledgerly_logo.png" alt="MyBusinessLedger Logo" class="h-10 w-auto">
-                <span class="text-xl font-bold">MyBusinessLedger</span>
+                <img src="/images/ledgerly_logo_transparent.png" alt="Ledgerly Logo" class="h-10 w-auto">
+                <span class="text-xl font-bold">Ledgerly</span>
             </div>
-            <nav class="hidden md:flex gap-6">
-                <a href="#features" class="text-sm font-medium hover:text-primary">Features</a>
-                <a href="#how-it-works" class="text-sm font-medium hover:text-primary">How It Works</a>
-                <a href="#faq" class="text-sm font-medium hover:text-primary">FAQ</a>
+            <nav class="hidden md:flex gap-8">
+                <a href="#features" class="text-sm font-medium hover:text-blue-600">Features</a>
+                <a href="#how-it-works" class="text-sm font-medium hover:text-blue-600">How It Works</a>
+                <a href="#faq" class="text-sm font-medium hover:text-blue-600">FAQ</a>
             </nav>
-            <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded">Download Now</a>
+            <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded">Download Now</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="flex flex-col items-center text-center py-20 bg-gradient-to-b from-blue-50 to-white">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Simplify Your Business Finances</h1>
-        <h2 class="text-xl md:text-2xl mb-8 text-gray-600">Automatically track expenses and income from your Gmail, powered by Apple Sign In for secure authentication</h2>
-        <a href="#" class="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-lg text-lg font-medium">Download on the App Store</a>
-    </section>
-
-    <!-- Features Section -->
-    <section id="features" class="py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Key Features</h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-6 bg-white rounded-lg shadow-lg">
-                    <h3 class="text-xl font-semibold mb-4">Gmail Integration</h3>
-                    <p class="text-gray-600">Automatically scan your Gmail for financial transactions and receipts</p>
-                </div>
-                <div class="p-6 bg-white rounded-lg shadow-lg">
-                    <h3 class="text-xl font-semibold mb-4">Secure Authentication</h3>
-                    <p class="text-gray-600">Sign in securely with Apple ID for enhanced privacy</p>
-                </div>
-                <div class="p-6 bg-white rounded-lg shadow-lg">
-                    <h3 class="text-xl font-semibold mb-4">Smart Categorization</h3>
-                    <p class="text-gray-600">AI-powered expense categorization and reporting</p>
+    <main class="flex-1">
+        <!-- Hero Section -->
+        <section class="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-blue-50 to-white">
+            <div class="container px-4 md:px-6 mx-auto">
+                <div class="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
+                    <div class="space-y-6">
+                        <h1 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+                            Simplify Your Business Finances with AI-Powered Ledger Management
+                        </h1>
+                        <p class="text-gray-600 text-lg md:text-xl">
+                            Add transactions by text, image, or Gmail tagging - all securely stored in your personal iCloud account
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                            <a href="#" class="inline-block">
+                                <img src="/images/app-store-badge.png" alt="Download on the App Store" class="h-12 w-auto">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="flex justify-center md:justify-end gap-4">
+                        <div class="relative w-[200px] h-[410px] shadow-xl rounded-3xl border border-gray-200 overflow-hidden">
+                            <img src="/images/app-chat-screen.png" alt="Ledgerly Chat Interface" class="object-cover w-full h-full">
+                        </div>
+                        <div class="relative hidden md:block w-[200px] h-[410px] shadow-xl rounded-3xl border border-gray-200 overflow-hidden">
+                            <img src="/images/app-transactions-screen-updated.png" alt="Ledgerly Transactions Screen" class="object-cover w-full h-full">
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- How It Works Section -->
-    <section id="how-it-works" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
-            <div class="max-w-3xl mx-auto">
-                <ol class="space-y-8">
-                    <li class="flex items-start">
-                        <span class="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center mr-4">1</span>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">Sign in with Apple</h3>
-                            <p class="text-gray-600">Quick and secure authentication using your Apple ID</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center mr-4">2</span>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">Connect your Gmail</h3>
-                            <p class="text-gray-600">Securely link your Gmail account for automatic transaction tracking</p>
-                        </div>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="flex-shrink-0 w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center mr-4">3</span>
-                        <div>
-                            <h3 class="text-xl font-semibold mb-2">Start Tracking</h3>
-                            <p class="text-gray-600">View your categorized expenses and income in real-time</p>
-                        </div>
-                    </li>
-                </ol>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
-            <div class="max-w-3xl mx-auto space-y-6">
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-xl font-semibold mb-2">What is Gmail integration?</h3>
-                    <p class="text-gray-600">Our app securely scans your Gmail for financial transactions and receipts, automatically categorizing them for easy tracking.</p>
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="w-full py-16 md:py-24">
+            <div class="container px-4 md:px-6 mx-auto">
+                <div class="flex flex-col items-center justify-center space-y-4 text-center">
+                    <div class="space-y-2 max-w-3xl">
+                        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">How It Works</h2>
+                        <p class="text-gray-600 text-lg md:text-xl">
+                            Get started with Ledgerly in three simple steps
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-xl font-semibold mb-2">How secure is my data?</h3>
-                    <p class="text-gray-600">We use Apple Sign In for authentication and implement industry-standard encryption to protect your data.</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-xl font-semibold mb-2">What are the pricing options?</h3>
-                    <p class="text-gray-600">We offer a free tier with basic features and premium plans for advanced functionality.</p>
-                </div>
-                <div class="bg-white rounded-lg shadow-lg p-6">
-                    <h3 class="text-xl font-semibold mb-2">How is my data privacy ensured?</h3>
-                    <p class="text-gray-600">We only access the emails necessary for financial tracking and never share your data with third parties.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                    <div class="flex flex-col items-center space-y-4 text-center">
+                        <div class="rounded-full bg-blue-100 p-6">
+                            <!-- PlusCircle SVG -->
+                            <svg class="h-12 w-12 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v8m-4-4h8"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold">Step 1: Add Transactions</h3>
+                        <p class="text-gray-600">
+                            Simply type your transactions, upload an image, or tag emails in Gmail - our AI does the rest
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center space-y-4 text-center">
+                        <div class="rounded-full bg-blue-100 p-6">
+                            <!-- BarChart2 SVG -->
+                            <svg class="h-12 w-12 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="12" width="4" height="8"/><rect x="9" y="8" width="4" height="12"/><rect x="15" y="4" width="4" height="16"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold">Step 2: Track & Analyse</h3>
+                        <p class="text-gray-600">
+                            Generate reports and easily track expenses, income, and invoices
+                        </p>
+                    </div>
+                    <div class="flex flex-col items-center space-y-4 text-center">
+                        <div class="rounded-full bg-blue-100 p-6">
+                            <!-- CloudCheck SVG -->
+                            <svg class="h-12 w-12 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.5 19a4.5 4.5 0 0 0 0-9c-.2 0-.4 0-.6.03A7 7 0 1 0 5 17.5"/><path d="m16 16 2 2 4-4"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold">Step 3: Securely backup with iCloud</h3>
+                        <p class="text-gray-600">
+                            Your data is securely backed up in your personal iCloud account for complete privacy
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="w-full py-16 md:py-24 bg-blue-50">
+            <div class="container px-4 md:px-6 mx-auto">
+                <div class="flex flex-col items-center justify-center space-y-4 text-center">
+                    <div class="space-y-2 max-w-3xl">
+                        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Key Features</h2>
+                        <p class="text-gray-600 text-lg md:text-xl">
+                            Everything you need to manage your business finances
+                        </p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
+                    <div class="flex flex-col space-y-2 p-6 bg-white rounded-xl shadow-sm">
+                        <h3 class="text-xl font-bold">AI-Powered Transaction Entry</h3>
+                        <p class="text-gray-600">
+                            Add transactions by typing text, uploading images, or tagging emails in Gmail
+                        </p>
+                    </div>
+                    <div class="flex flex-col space-y-2 p-6 bg-white rounded-xl shadow-sm">
+                        <h3 class="text-xl font-bold">iCloud Privacy</h3>
+                        <p class="text-gray-600">
+                            All your data is securely stored in your personal iCloud account
+                        </p>
+                    </div>
+                    <div class="flex flex-col space-y-2 p-6 bg-white rounded-xl shadow-sm">
+                        <h3 class="text-xl font-bold">Expense Tracking</h3>
+                        <p class="text-gray-600">Easily monitor and categorize all your business expenses</p>
+                    </div>
+                    <div class="flex flex-col space-y-2 p-6 bg-white rounded-xl shadow-sm">
+                        <h3 class="text-xl font-bold">Income Management</h3>
+                        <p class="text-gray-600">Track all sources of revenue for your business</p>
+                    </div>
+                    <div class="flex flex-col space-y-2 p-6 bg-white rounded-xl shadow-sm">
+                        <h3 class="text-xl font-bold">Invoice Tracking</h3>
+                        <p class="text-gray-600">Keep track of all your invoices in one place</p>
+                    </div>
+                    <div class="flex flex-col space-y-2 p-6 bg-white rounded-xl shadow-sm">
+                        <h3 class="text-xl font-bold">Detailed Reports</h3>
+                        <p class="text-gray-600">
+                            Generate comprehensive financial reports to understand your business
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="w-full py-16 md:py-24">
+            <div class="container px-4 md:px-6 mx-auto">
+                <div class="flex flex-col items-center justify-center space-y-4 text-center">
+                    <div class="space-y-2 max-w-3xl">
+                        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                            Frequently Asked Questions
+                        </h2>
+                        <p class="text-gray-600 text-lg md:text-xl">
+                            Find answers to common questions about Ledgerly
+                        </p>
+                    </div>
+                </div>
+                <div class="mx-auto max-w-3xl mt-16">
+                    <div id="faq-accordion">
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                How does the AI transaction entry work?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                Ledgerly uses AI to understand transactions whether you type them in text format, upload an image of a receipt, or tag an email in Gmail. The AI extracts the relevant information like amount, date, category, and vendor, saving you time on manual data entry.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                Is my data secure?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                Absolutely. Ledgerly stores all your financial data in your personal iCloud account, not on our servers. This means you maintain complete control and privacy of your information. We use Apple Sign In for authentication, which provides enhanced security and privacy.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                What is the pricing structure?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                Ledgerly offers a free tier with basic features and premium tiers starting at $9.99/month for additional features like unlimited transaction history, advanced reporting, and priority support. Visit our pricing page for more details.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                How is my data privacy protected?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                We take data privacy seriously. Our app only accesses the emails needed for financial tracking, and we use read-only access. Your data is never shared with third parties without your explicit consent, and you can delete your data at any time.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                Can I export my data?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                Yes, you can export your financial data in various formats including CSV, PDF, and Excel. This makes it easy to share information with your accountant or import into other financial software.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="w-full py-16 md:py-20 bg-green-600 text-white">
+            <div class="container px-4 md:px-6 mx-auto">
+                <div class="flex flex-col items-center justify-center space-y-6 text-center max-w-3xl mx-auto">
+                    <div class="space-y-3">
+                        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                            Ready to Simplify Your Business Finances?
+                        </h2>
+                        <p class="text-xl md:text-2xl">
+                            Start managing your business finances more efficiently with Ledgerly
+                        </p>
+                    </div>
+                    <a href="#" class="inline-block mt-4 bg-black rounded-lg overflow-hidden">
+                        <img src="/images/app-store-badge.png" alt="Download on the App Store" class="h-auto w-auto max-w-[135px]">
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="py-8 bg-gray-100">
-        <div class="container mx-auto px-4 text-center">
-            <div class="flex justify-center space-x-6 mb-4">
-                <a href="/terms.html" class="text-gray-600 hover:text-gray-900">Terms of Service</a>
-                <a href="/privacy.html" class="text-gray-600 hover:text-gray-900">Privacy Policy</a>
+    <footer class="w-full py-12 bg-gray-900 text-gray-300">
+        <div class="container px-4 md:px-6 mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <img src="/images/ledgerly_logo_transparent.png" alt="Ledgerly Logo" class="h-10 w-auto">
+                        <span class="text-xl font-bold text-white">Ledgerly</span>
+                    </div>
+                    <p class="text-sm">Simplify your business finances with AI-powered transaction management</p>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-lg font-medium text-white">Quick Links</h3>
+                    <nav class="flex flex-col space-y-3">
+                        <a href="#features" class="text-sm hover:text-white">Features</a>
+                        <a href="#how-it-works" class="text-sm hover:text-white">How It Works</a>
+                        <a href="#faq" class="text-sm hover:text-white">FAQ</a>
+                        <a href="#" class="text-sm hover:text-white">Support</a>
+                    </nav>
+                </div>
+                <div class="space-y-4">
+                    <h3 class="text-lg font-medium text-white">Legal</h3>
+                    <nav class="flex flex-col space-y-3">
+                        <a href="/terms-ledgify.html" class="text-sm hover:text-white">Terms of Service</a>
+                        <a href="/privacy-ledgify.html" class="text-sm hover:text-white">Privacy Policy</a>
+                        <a href="#" class="text-sm hover:text-white">Cookie Policy</a>
+                    </nav>
+                </div>
             </div>
-            <p class="text-gray-600">&copy; 2024 MyBusinessLedger. All rights reserved.</p>
+            <div class="mt-12 border-t border-gray-800 pt-8 text-center text-sm">
+                <p>© 2025 Ledgerly. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+    <script>
+        function toggleAccordion(btn) {
+            var item = btn.parentElement;
+            var open = item.classList.contains('open');
+            document.querySelectorAll('.accordion-item').forEach(function(i) { i.classList.remove('open'); });
+            if (!open) item.classList.add('open');
+        }
+    </script>
 </body>
 </html>
