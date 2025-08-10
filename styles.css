@@ -67,7 +67,7 @@ nav {
 
 /* Main Content */
 main {
-    padding: 120px 0;
+    padding: 0 0 120px 0;
 }
 
 .hero {
@@ -136,7 +136,7 @@ footer {
     }
 
     main {
-        padding: 80px 0;
+        padding: 0 0 80px 0;
     }
 
     .hero {
@@ -154,7 +154,7 @@ footer {
     }
 
     main {
-        padding: 60px 0;
+        padding: 0 0 60px 0;
     }
 
     .hero {
