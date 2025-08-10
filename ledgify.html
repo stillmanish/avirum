@@ -61,9 +61,15 @@
         "operatingSystem": "iOS",
         "offers": {
             "@type": "Offer",
-            "availability": "https://schema.org/PreOrder",
-            "price": "0",
-            "priceCurrency": "USD"
+            "availability": "https://schema.org/InStock",
+            "price": "1.00",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.00",
+                "priceCurrency": "USD",
+                "billingIncrement": "P1W"
+            }
         },
         "aggregateRating": {
             "@type": "AggregateRating",
@@ -73,10 +79,10 @@
         "featureList": [
             "AI-powered expense tracking",
             "Receipt OCR scanning",
-            "Automated bank import",
+            "Manual transaction entry",
             "iCloud secure storage",
             "Tax-ready reports",
-            "Professional invoicing"
+            "Business expense categorization"
         ],
         "screenshot": "https://avirumapps.com/images/ledgify-homepage.png",
         "softwareVersion": "1.0",
@@ -405,7 +411,7 @@
                                 <span>+</span>
                             </button>
                             <div class="accordion-content text-gray-600 pb-4">
-                                Ledgify offers a free tier with basic features and premium tiers starting at $9.99/month for additional features like unlimited transaction history, advanced reporting, and priority support. Visit our pricing page for more details.
+                                Ledgify is available on the App Store with a 7-day free trial. After the trial, it's just $1 per week for full access to all features including unlimited transactions, receipt scanning, AI categorization, and tax-ready reports.
                             </div>
                         </div>
                         <div class="accordion-item border-b">
@@ -414,7 +420,7 @@
                                 <span>+</span>
                             </button>
                             <div class="accordion-content text-gray-600 pb-4">
-                                We take data privacy seriously. Our app only accesses the emails needed for financial tracking, and we use read-only access. Your data is never shared with third parties without your explicit consent, and you can delete your data at any time.
+                                We take data privacy seriously. All your financial data is stored securely in your personal iCloud account, not on our servers. Your data is never shared with third parties without your explicit consent, and you can delete your data at any time.
                             </div>
                         </div>
                         <div class="accordion-item border-b">
@@ -424,6 +430,51 @@
                             </button>
                             <div class="accordion-content text-gray-600 pb-4">
                                 Yes, you can export your financial data in various formats including CSV, PDF, and Excel. This makes it easy to share information with your accountant or import into other financial software.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                What devices does Ledgify support?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                Ledgify is designed for iOS devices and works seamlessly across your iPhone, iPad, and Mac. Your data syncs automatically through iCloud, so you can access your financial information from any of your Apple devices.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                How accurate is the AI receipt scanning?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                Our AI technology has been trained on millions of receipts and achieves over 95% accuracy in extracting key information like amounts, dates, and vendor names. You can always review and edit any extracted data before saving.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                Can I use Ledgify for my business?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                Absolutely! Ledgify is perfect for small businesses, freelancers, contractors, and self-employed individuals. The app helps you track business expenses, categorize transactions, and generate reports needed for tax purposes.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                What happens if I cancel my subscription?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                You can cancel your subscription at any time through the App Store. Your data remains safe in your iCloud account, and you can continue to view your existing transactions. To add new transactions, you'll need to resubscribe.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                How do I get support if I have issues?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                We offer comprehensive support through in-app help, email support, and detailed documentation. Premium subscribers get priority support with faster response times. Check our help center for tutorials and troubleshooting guides.
                             </div>
                         </div>
                     </div>
