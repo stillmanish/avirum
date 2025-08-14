@@ -430,7 +430,7 @@ export default function TermsPage() {
               <li>AI-powered receipt scanning and data extraction</li>
               <li>Transaction editing and categorization</li>
               <li>Financial summaries and CSV export</li>
-              <li>Optional Gmail integration for automated transaction import</li>
+              <li>AI-powered receipt scanning and data extraction</li>
               <li>iCloud sync for data backup</li>
             </ul>
             <p className="mb-4">
@@ -449,7 +449,7 @@ export default function TermsPage() {
               <li className="mb-2">
                 <strong>Accuracy:</strong> You are solely responsible for reviewing, editing, and ensuring the accuracy
                 of all transactions and data entered or imported into the App, including those processed by AI or
-                imported from Gmail.
+                imported from your bank account.
               </li>
               <li className="mb-2">
                 <strong>AI Limitations:</strong> The App uses artificial intelligence (AI) to extract and categorize
@@ -535,8 +535,8 @@ export default function TermsPage() {
             <h2 className="text-xl font-bold mb-4">7. User Data and Privacy</h2>
             <ul className="mb-4">
               <li className="mb-2">
-                The App may collect and store data you provide, including transaction details, receipt images, and email
-                data (if Gmail integration is enabled).
+                The App may collect and store data you provide, including transaction details, receipt images, and bank
+                transaction data (if bank integration is enabled).
               </li>
               <li className="mb-2">
                 Data is stored locally on your device and, if enabled, in your iCloud account. Some features may require

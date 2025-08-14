@@ -56,34 +56,36 @@ export default function Home() {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Ledgerly */}
+              {/* Ledgify */}
               <Card>
                 <CardHeader>
-                  <CardTitle>Ledgerly</CardTitle>
+                  <CardTitle>Ledgify</CardTitle>
                   <CardDescription>Business Finance Management</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-4">
                     <Image
                       src="/images/ledgerly_logo.png"
-                      alt="Ledgerly Logo"
+                      alt="Ledgify Logo"
                       width={80}
                       height={80}
                       className="rounded-lg"
                     />
                     <p className="text-muted-foreground">
-                      Simplify your business finances with AI-powered Gmail integration. Automatically track expenses and income, with secure Apple Sign In authentication.
+                      Transform your bookkeeping with AI-powered expense tracking. Automatically process receipts, categorize transactions, and generate tax-ready reports.
                     </p>
                     <div className="flex justify-center">
-                      <Button className="bg-black text-white hover:bg-gray-800">
-                        <Image
-                          src="/images/app-store-badge.png"
-                          alt="Download on the App Store"
-                          width={120}
-                          height={40}
-                          className="mr-2"
-                        />
-                        Coming Soon
+                      <Button asChild className="bg-black text-white hover:bg-gray-800">
+                        <a href="https://apps.apple.com/us/app/ledgify/id6744262674" target="_blank" rel="noopener noreferrer">
+                          <Image
+                            src="/images/app-store-badge.png"
+                            alt="Download on the App Store"
+                            width={120}
+                            height={40}
+                            className="mr-2"
+                          />
+                          Download
+                        </a>
                       </Button>
                     </div>
                   </div>
