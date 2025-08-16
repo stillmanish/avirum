@@ -17,7 +17,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "Ledgerly - Simplify Your Business Finances",
   description:
-    "Add transactions by text, image, or Gmail tagging - all securely stored in your personal iCloud account",
+    "Add transactions by text, image, or manual entry - all securely stored in your personal iCloud account",
 }
 
 export default function RootLayout({
@@ -141,7 +141,7 @@ export default function Home() {
                   Simplify Your Business Finances with AI-Powered Ledger Management
                 </h1>
                 <p className="text-muted-foreground text-lg md:text-xl">
-                  Add transactions by text, image, or Gmail tagging - all securely stored in your personal iCloud
+                  Add transactions by text, image, or manual entry - all securely stored in your personal iCloud
                   account
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 pt-2">
@@ -196,7 +196,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold">Step 1: Add Transactions</h3>
                 <p className="text-muted-foreground">
-                  Simply type your transactions, upload an image, or tag emails in Gmail - our AI does the rest
+                  Simply type your transactions, upload an image, or enter manually - our AI does the rest
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-4 text-center">
@@ -236,7 +236,7 @@ export default function Home() {
               <div className="flex flex-col space-y-2 p-6 bg-white rounded-xl shadow-sm">
                 <h3 className="text-xl font-bold">AI-Powered Transaction Entry</h3>
                 <p className="text-muted-foreground">
-                  Add transactions by typing text, uploading images, or tagging emails in Gmail
+                  Add transactions by typing text, uploading images, or manual entry
                 </p>
               </div>
               <div className="flex flex-col space-y-2 p-6 bg-white rounded-xl shadow-sm">
@@ -286,7 +286,7 @@ export default function Home() {
                   <AccordionTrigger>How does the AI transaction entry work?</AccordionTrigger>
                   <AccordionContent>
                     Ledgerly uses AI to understand transactions whether you type them in text format, upload an image of
-                    a receipt, or tag an email in Gmail. The AI extracts the relevant information like amount, date,
+                    a receipt, or enter manually. The AI extracts the relevant information like amount, date,
                     category, and vendor, saving you time on manual data entry.
                   </AccordionContent>
                 </AccordionItem>

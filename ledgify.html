@@ -98,6 +98,15 @@
         .accordion-content { display: none; }
         .accordion-item.open .accordion-content { display: block; }
     </style>
+    
+    <!-- Twitter conversion tracking base code -->
+    <script>
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    twq('config','qcj3m');
+    </script>
+    <!-- End Twitter conversion tracking base code -->
 </head>
 <body class="bg-white text-gray-800">
     <!-- Header -->
@@ -514,5 +523,14 @@
             }
         }
     </script>
+    
+    <!-- Twitter conversion tracking event code -->
+    <script type="text/javascript">
+      // Insert Twitter Event ID
+      twq('event', 'tw-qcj3m-qcj3p', {
+        conversion_id: null // use this to pass a unique ID for the conversion event for deduplication (e.g. order id '1a2b3c')
+      });
+    </script>
+    <!-- End Twitter conversion tracking event code -->
 </body>
 </html> 

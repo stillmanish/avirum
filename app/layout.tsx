@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "MyBusinessLedger - Simplify Your Business Finances",
   description:
-    "Automatically track expenses and income from your Gmail, powered by Apple Sign In for secure authentication",
+    "Automatically track expenses and income with AI-powered transaction management, powered by Apple Sign In for secure authentication",
     generator: 'v0.dev'
 }
 
