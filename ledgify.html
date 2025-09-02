@@ -400,23 +400,79 @@
             transform: scale(1.2);
         }
 
-        /* Responsive Phone Sizing */
+        /* Mobile Engagement & Conversion Optimizations */
         @media (max-width: 480px) {
+            /* Fix text truncation issues */
+            .hero h1 {
+                font-size: clamp(22px, 5.5vw, 28px) !important;
+                line-height: 1.2 !important;
+                padding: 0 8px !important;
+                margin-bottom: 16px !important;
+            }
+
+            .hero p {
+                font-size: 16px !important;
+                line-height: 1.5 !important;
+                padding: 0 12px !important;
+                margin-bottom: 24px !important;
+            }
+
+            /* Interactive Phone Showcase */
             .phone-carousel .phone-mockup {
-                width: min(140px, 38vw);
+                width: min(130px, 36vw);
                 height: auto;
                 aspect-ratio: 9/19.5;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                cursor: pointer;
+                position: relative;
             }
 
+            /* Add interactive hotspots */
+            .phone-mockup::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 20px;
+                height: 20px;
+                background: var(--brand-blue);
+                border-radius: 50%;
+                opacity: 0;
+                animation: pulse-hotspot 2s infinite;
+                pointer-events: none;
+            }
+
+            .phone-mockup:hover::after,
+            .phone-mockup:focus::after {
+                opacity: 1;
+            }
+
+            @keyframes pulse-hotspot {
+                0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+                50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.3; }
+                100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+            }
+
+            /* Engaging carousel with better spacing */
             .phone-carousel {
-                gap: 12px;
-                padding: 0 16px 16px 16px;
+                gap: 10px;
+                padding: 0 12px 16px 12px;
+                scroll-behavior: smooth;
             }
 
-            /* Show peek of next image */
+            /* Interactive feedback on scroll */
+            .phone-carousel .phone-mockup:active {
+                transform: scale(0.95);
+                transition: transform 0.1s ease;
+            }
+
+            /* Show peek of next image with gradient fade */
             .phone-carousel::after {
                 content: '';
-                flex: 0 0 20px;
+                flex: 0 0 16px;
+                background: linear-gradient(to right, transparent, rgba(255,255,255,0.8));
+                pointer-events: none;
             }
         }
 
@@ -717,6 +773,128 @@
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
             }
+        }
+
+        /* Mobile Conversion Features */
+        .mobile-sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-purple) 100%);
+            padding: 12px 16px;
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+        }
+
+        .mobile-sticky-cta.show {
+            transform: translateY(0);
+        }
+
+        .mobile-sticky-cta a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 12px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            transition: all 0.2s ease;
+        }
+
+        .mobile-sticky-cta a:active {
+            transform: scale(0.98);
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* Engaging scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Interactive feature cards */
+        @media (max-width: 768px) {
+            #why-ledgify article {
+                transform: translateY(20px);
+                opacity: 0;
+                transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            #why-ledgify article.animate-in {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            #why-ledgify article:nth-child(1) { transition-delay: 0.1s; }
+            #why-ledgify article:nth-child(2) { transition-delay: 0.2s; }
+            #why-ledgify article:nth-child(3) { transition-delay: 0.3s; }
+
+            /* Tap to reveal more content */
+            #why-ledgify article {
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+            }
+
+            #why-ledgify article::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+                transition: left 0.5s ease;
+            }
+
+            #why-ledgify article:active::before {
+                left: 100%;
+            }
+
+            /* Progress indicator */
+            .reading-progress {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 3px;
+                background: linear-gradient(90deg, var(--brand-green) 0%, var(--brand-blue) 100%);
+                z-index: 1000;
+                transition: width 0.1s ease;
+            }
+        }
+
+        /* Engagement micro-interactions */
+        .engagement-pulse {
+            animation: engagement-pulse 3s infinite;
+        }
+
+        @keyframes engagement-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Social proof animations */
+        .social-proof {
+            animation: float-in 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes float-in {
+            0% { opacity: 0; transform: translateY(20px) scale(0.9); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         /* Reduced Motion */
@@ -1226,6 +1404,14 @@
         </div>
     </footer>
 
+    <!-- Mobile Conversion Elements -->
+    <div class="reading-progress"></div>
+    <div class="mobile-sticky-cta">
+        <a href="https://apps.apple.com/us/app/ledgify/id6744262674" target="_blank" rel="noopener noreferrer">
+            📱 Get Ledgify Now - Free Trial
+        </a>
+    </div>
+
     <script>
         function toggleAccordion(button) {
             const item = button.parentElement;
@@ -1238,6 +1424,174 @@
                 span.textContent = '+';
             }
         }
+
+        // Mobile Engagement & Conversion System
+        document.addEventListener('DOMContentLoaded', function() {
+            // Reading progress bar
+            const progressBar = document.querySelector('.reading-progress');
+            const stickyCTA = document.querySelector('.mobile-sticky-cta');
+            let hasShownCTA = false;
+            
+            function updateReadingProgress() {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = (scrollTop / docHeight) * 100;
+                
+                if (progressBar) {
+                    progressBar.style.width = Math.min(progress, 100) + '%';
+                }
+                
+                // Show sticky CTA after 30% scroll or 10 seconds
+                if (!hasShownCTA && (progress > 30 || Date.now() - pageLoadTime > 10000)) {
+                    if (stickyCTA && window.innerWidth <= 768) {
+                        stickyCTA.classList.add('show');
+                        hasShownCTA = true;
+                    }
+                }
+            }
+            
+            const pageLoadTime = Date.now();
+            window.addEventListener('scroll', updateReadingProgress);
+            
+            // Scroll reveal animations
+            function revealOnScroll() {
+                const reveals = document.querySelectorAll('.scroll-reveal');
+                const featureCards = document.querySelectorAll('#why-ledgify article');
+                
+                reveals.forEach(reveal => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        reveal.classList.add('revealed');
+                    }
+                });
+                
+                // Animate feature cards on mobile
+                if (window.innerWidth <= 768) {
+                    featureCards.forEach(card => {
+                        const cardTop = card.getBoundingClientRect().top;
+                        if (cardTop < window.innerHeight - 100) {
+                            card.classList.add('animate-in');
+                        }
+                    });
+                }
+            }
+            
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Initial check
+            
+            // Interactive phone mockup engagement
+            const phoneMockups = document.querySelectorAll('.phone-mockup');
+            phoneMockups.forEach((mockup, index) => {
+                mockup.addEventListener('click', function() {
+                    // Add engagement pulse
+                    this.classList.add('engagement-pulse');
+                    
+                    // Show feature callout
+                    showFeatureCallout(index);
+                    
+                    // Remove pulse after animation
+                    setTimeout(() => {
+                        this.classList.remove('engagement-pulse');
+                    }, 3000);
+                });
+            });
+            
+            function showFeatureCallout(index) {
+                const callouts = [
+                    'AI Chat: Add expenses by typing naturally!',
+                    'Track Everything: Income, expenses, and balance in one view',
+                    'Smart Budgeting: Set goals and track progress automatically'
+                ];
+                
+                if (callouts[index] && window.innerWidth <= 768) {
+                    // Create temporary callout
+                    const callout = document.createElement('div');
+                    callout.className = 'feature-callout';
+                    callout.textContent = callouts[index];
+                    callout.style.cssText = `
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background: var(--brand-blue);
+                        color: white;
+                        padding: 12px 20px;
+                        border-radius: 25px;
+                        font-size: 14px;
+                        font-weight: 600;
+                        z-index: 1001;
+                        animation: callout-appear 0.5s ease;
+                        box-shadow: 0 4px 20px rgba(30,58,138,0.3);
+                        max-width: 280px;
+                        text-align: center;
+                    `;
+                    
+                    document.body.appendChild(callout);
+                    
+                    // Remove after 3 seconds
+                    setTimeout(() => {
+                        callout.style.animation = 'callout-disappear 0.3s ease forwards';
+                        setTimeout(() => callout.remove(), 300);
+                    }, 3000);
+                }
+            }
+            
+            // Add callout animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes callout-appear {
+                    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+                    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                }
+                @keyframes callout-disappear {
+                    0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Mobile conversion triggers
+            let engagementScore = 0;
+            const engagementThreshold = 3;
+            
+            // Track user engagement
+            function trackEngagement(action) {
+                engagementScore++;
+                console.log(`Engagement: ${action} (Score: ${engagementScore})`);
+                
+                // Show conversion elements after enough engagement
+                if (engagementScore >= engagementThreshold && !hasShownCTA) {
+                    if (stickyCTA && window.innerWidth <= 768) {
+                        stickyCTA.classList.add('show');
+                        hasShownCTA = true;
+                    }
+                }
+            }
+            
+            // Track various engagement actions
+            document.addEventListener('scroll', () => {
+                if (window.scrollY > 500) trackEngagement('deep_scroll');
+            }, { once: true });
+            
+            phoneMockups.forEach(mockup => {
+                mockup.addEventListener('click', () => trackEngagement('phone_interaction'));
+            });
+            
+            document.querySelectorAll('#why-ledgify article').forEach(card => {
+                card.addEventListener('click', () => trackEngagement('feature_exploration'));
+            });
+            
+            // Add pulse to App Store buttons for conversion
+            const appStoreButtons = document.querySelectorAll('a[href*="apps.apple.com"]');
+            appStoreButtons.forEach(button => {
+                if (window.innerWidth <= 768) {
+                    button.classList.add('engagement-pulse');
+                }
+            });
+            
+        });
 
         // Mobile Carousel Functionality
         document.addEventListener('DOMContentLoaded', function() {
