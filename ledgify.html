@@ -969,7 +969,7 @@
 
     <main class="flex-1" role="main">
         <!-- Hero Section -->
-        <section class="w-full py-0 md:py-2 lg:py-4 hero-mesh" aria-labelledby="hero-heading">
+        <section class="w-full py-0 md:py-2 lg:py-4 hero-mesh" aria-labelledby="hero-heading" style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;">
             <div class="container px-4 md:px-6 mx-auto">
                 <div class="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
                     <div class="space-y-6">
@@ -1561,13 +1561,8 @@
             `;
             document.head.appendChild(style);
             
-            // Simple engagement tracking (no ugly CTA)
-            const appStoreButtons = document.querySelectorAll('a[href*="apps.apple.com"]');
-            appStoreButtons.forEach(button => {
-                if (window.innerWidth <= 768) {
-                    button.classList.add('engagement-pulse');
-                }
-            });
+            // Simple engagement tracking (no pulsating)
+            // Removed pulsating animation from App Store buttons
             
         });
 
