@@ -350,6 +350,126 @@
             }
         }
 
+        /* Mobile Carousel System */
+        .phone-carousel-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .phone-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 16px;
+            padding: 0 20px 20px 20px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .phone-carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .phone-carousel .phone-mockup {
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+        }
+
+        /* Scroll Indicators */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 0 20px;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(30,58,138,0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .carousel-dot.active {
+            background: var(--brand-blue);
+            transform: scale(1.2);
+        }
+
+        /* Responsive Phone Sizing */
+        @media (max-width: 480px) {
+            .phone-carousel .phone-mockup {
+                width: min(140px, 38vw);
+                height: auto;
+                aspect-ratio: 9/19.5;
+            }
+
+            .phone-carousel {
+                gap: 12px;
+                padding: 0 16px 16px 16px;
+            }
+
+            /* Show peek of next image */
+            .phone-carousel::after {
+                content: '';
+                flex: 0 0 20px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .phone-carousel .phone-mockup {
+                width: min(120px, 35vw);
+            }
+
+            .phone-carousel {
+                gap: 10px;
+                padding: 0 12px 12px 12px;
+            }
+        }
+
+        /* Desktop and Tablet - Keep Original Layout */
+        @media (min-width: 769px) {
+            .phone-carousel-container {
+                display: contents;
+            }
+
+            .phone-carousel {
+                display: flex;
+                overflow: visible;
+                scroll-snap-type: none;
+                gap: 16px;
+                padding: 0;
+                justify-content: center;
+            }
+
+            .phone-carousel .phone-mockup {
+                flex: 0 0 auto;
+                width: 200px;
+                height: 410px;
+            }
+
+            .carousel-indicators {
+                display: none;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            .phone-carousel .phone-mockup {
+                width: min(160px, 28vw);
+                height: auto;
+                aspect-ratio: 9/19.5;
+            }
+
+            .phone-carousel {
+                gap: 14px;
+                padding: 0 20px 20px 20px;
+            }
+        }
+
         /* Mobile Performance Optimizations */
         @media (max-width: 768px) {
             /* Enable hardware acceleration for smoother animations */
@@ -379,17 +499,15 @@
                 min-height: 44px;
                 touch-action: manipulation;
             }
-            /* Reduce 3D effects intensity on mobile */
-            .phone-mockup:hover {
-                transform: perspective(800px) rotateY(-3deg) rotateX(2deg) translateZ(10px);
+            /* Optimize 3D effects for mobile carousel */
+            .phone-carousel .phone-mockup:hover {
+                transform: translateY(-4px) scale(1.02);
+                transition: transform 0.2s ease;
             }
             
-            .phone-mockup:nth-child(2):hover {
-                transform: perspective(800px) rotateY(1deg) rotateX(2deg) translateZ(8px);
-            }
-            
-            .phone-mockup:nth-child(3):hover {
-                transform: perspective(800px) rotateY(3deg) rotateX(-1deg) translateZ(12px);
+            .phone-carousel .phone-mockup:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease;
             }
 
             /* Reduce card hover effects for better mobile performance */
@@ -552,6 +670,42 @@
             .enhanced-button:active {
                 transform: scale(0.95);
             }
+
+            /* Optimize carousel for touch */
+            .phone-carousel .phone-mockup:hover {
+                transform: none;
+            }
+
+            .phone-carousel .phone-mockup:active {
+                transform: scale(0.95);
+                transition: transform 0.1s ease;
+            }
+
+            /* Make carousel dots more touch-friendly */
+            .carousel-dot {
+                width: 12px;
+                height: 12px;
+                margin: 4px;
+                min-width: 44px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .carousel-dot::before {
+                content: '';
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: rgba(30,58,138,0.3);
+                transition: all 0.3s ease;
+            }
+
+            .carousel-dot.active::before {
+                background: var(--brand-blue);
+                transform: scale(1.2);
+            }
         }
 
         /* High DPI display optimizations */
@@ -624,15 +778,22 @@
                             Add transactions by text, image, or manual entry – all securely stored in your personal iCloud. Simplify your finances with intelligent automation.
                         </p>
                     </div>
-                    <div class="flex justify-center md:justify-end gap-2 md:gap-4" role="img" aria-label="Ledgify app screenshots showing expense tracking interface">
-                        <div class="relative w-[160px] md:w-[200px] h-[328px] md:h-[410px] enhanced-shadow rounded-3xl border border-gray-200 overflow-hidden phone-mockup">
-                            <img src="/images/ledgify-homepage.png" alt="Ledgify App Homepage - Main dashboard with expense overview" class="object-cover w-full h-full" loading="lazy">
+                    <div class="phone-carousel-container" role="img" aria-label="Ledgify app screenshots showing expense tracking interface">
+                        <div class="phone-carousel">
+                            <div class="relative enhanced-shadow rounded-3xl border border-gray-200 overflow-hidden phone-mockup">
+                                <img src="/images/ledgify-homepage.png" alt="Ledgify App Homepage - Main dashboard with expense overview" class="object-cover w-full h-full" loading="lazy">
+                            </div>
+                            <div class="relative enhanced-shadow rounded-3xl border border-gray-200 overflow-hidden phone-mockup">
+                                <img src="/images/ledgify-transactions.png" alt="Ledgify Transactions Screen - List of income and expenses with balance" class="object-cover w-full h-full" loading="lazy">
+                            </div>
+                            <div class="relative enhanced-shadow rounded-3xl border border-gray-200 overflow-hidden phone-mockup">
+                                <img src="/images/ledgify-transactions-detail.png" alt="Ledgify Transaction Detail Screen - Detailed view of individual transactions" class="object-cover w-full h-full" loading="lazy">
+                            </div>
                         </div>
-                        <div class="relative hidden sm:block w-[160px] md:w-[200px] h-[328px] md:h-[410px] enhanced-shadow rounded-3xl border border-gray-200 overflow-hidden phone-mockup">
-                            <img src="/images/ledgify-transactions.png" alt="Ledgify Transactions Screen - List of income and expenses with balance" class="object-cover w-full h-full" loading="lazy">
-                        </div>
-                        <div class="relative hidden md:block w-[200px] h-[410px] enhanced-shadow rounded-3xl border border-gray-200 overflow-hidden phone-mockup">
-                            <img src="/images/ledgify-transactions-detail.png" alt="Ledgify Transaction Detail Screen - Detailed view of individual transactions" class="object-cover w-full h-full" loading="lazy">
+                        <div class="carousel-indicators">
+                            <span class="carousel-dot active" data-slide="0"></span>
+                            <span class="carousel-dot" data-slide="1"></span>
+                            <span class="carousel-dot" data-slide="2"></span>
                         </div>
                     </div>
                 </div>
@@ -1077,6 +1238,52 @@
                 span.textContent = '+';
             }
         }
+
+        // Mobile Carousel Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.phone-carousel');
+            const indicators = document.querySelectorAll('.carousel-dot');
+            
+            if (!carousel || !indicators.length) return;
+            
+            // Update active indicator based on scroll position
+            function updateActiveIndicator() {
+                const scrollLeft = carousel.scrollLeft;
+                const itemWidth = carousel.querySelector('.phone-mockup').offsetWidth + 16; // width + gap
+                const activeIndex = Math.round(scrollLeft / itemWidth);
+                
+                indicators.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === activeIndex);
+                });
+            }
+            
+            // Scroll to specific slide when indicator is clicked
+            indicators.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    const itemWidth = carousel.querySelector('.phone-mockup').offsetWidth + 16;
+                    carousel.scrollTo({
+                        left: itemWidth * index,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Update indicators on scroll (throttled for performance)
+            let scrollTimeout;
+            carousel.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(updateActiveIndicator, 100);
+            });
+            
+            // Initial indicator update
+            updateActiveIndicator();
+            
+            // Handle resize events
+            window.addEventListener('resize', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(updateActiveIndicator, 150);
+            });
+        });
     </script>
     
     <!-- Twitter conversion tracking event code -->
