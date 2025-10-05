@@ -1,0 +1,1635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Ledgify - AI-Powered Expense Tracking & Personal Finance App | Small Business Finance</title>
+    <meta name="title" content="Ledgify - AI-Powered Expense Tracking & Personal Finance App | Small Business Finance">
+    <meta name="description" content="Transform your personal finances with Ledgify's AI-powered expense tracking app. Perfect for small businesses, freelancers, and contractors. Secure iCloud storage, automated categorization, and tax-ready reports.">
+    <meta name="keywords" content="expense tracking, personal finance app, small business accounting, AI personal finance, expense management, receipt scanning, financial software, business finance, tax preparation, iCloud accounting">
+    <meta name="author" content="Ledgify">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Canonical & Language -->
+    <link rel="canonical" href="https://avirumapps.com/ledgify.html" />
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://avirumapps.com/ledgify.html">
+    <meta property="og:title" content="Ledgify - AI-Powered Expense Tracking & Personal Finance App">
+    <meta property="og:description" content="Transform your personal finances with AI-powered expense tracking. Perfect for small businesses, freelancers, and contractors.">
+    <meta property="og:image" content="https://avirumapps.com/images/ledgify-homepage.png">
+    <meta property="og:site_name" content="Ledgify">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://avirumapps.com/ledgify.html">
+    <meta property="twitter:title" content="Ledgify - AI-Powered Expense Tracking & Personal Finance App">
+    <meta property="twitter:description" content="Transform your personal finances with AI-powered expense tracking. Perfect for small businesses, freelancers, and contractors.">
+    <meta property="twitter:image" content="https://avirumapps.com/images/ledgify-homepage.png">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="application-name" content="Ledgify">
+    <meta name="category" content="Business & Finance">
+    <meta name="coverage" content="Worldwide">
+    <meta name="distribution" content="Global">
+    <meta name="rating" content="General">
+    <meta name="theme-color" content="#059669">
+    
+    <!-- Favicon & Icons -->
+    <link rel="icon" href="/images/ledgerly_logo_transparent.png" type="image/png">
+    <link rel="apple-touch-icon" href="/images/ledgerly_logo_transparent.png">
+    
+    <!-- Stylesheets -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="/styles.css" rel="stylesheet">
+    
+    <!-- Structured Data / JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Ledgify",
+        "description": "AI-powered expense tracking and personal finance app for small businesses and freelancers",
+        "url": "https://avirumapps.com/ledgify.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "iOS",
+        "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "price": "1.00",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "1.00",
+                "priceCurrency": "USD",
+                "billingIncrement": "P1W"
+            }
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.8",
+            "ratingCount": "150"
+        },
+        "featureList": [
+            "AI-powered expense tracking",
+            "Receipt OCR scanning",
+            "Manual transaction entry",
+            "iCloud secure storage",
+            "Tax-ready reports",
+            "Business expense categorization"
+        ],
+        "screenshot": "https://avirumapps.com/images/ledgify-homepage.png",
+        "softwareVersion": "1.0",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Avirum Apps",
+            "url": "https://avirumapps.com"
+        }
+    }
+    </script>
+    
+    <style>
+        /* Brand Colors */
+        :root {
+            --brand-navy: #1e3a8a;
+            --brand-blue: #1d4ed8;
+            --brand-blue-light: #3b82f6;
+            --brand-blue-lighter: #60a5fa;
+            --brand-green: #10b981;
+            --brand-green-dark: #059669;
+            --brand-orange: #f59e0b;
+            --brand-red: #ef4444;
+            --brand-purple: #8b5cf6;
+            --brand-purple-light: #a855f7;
+            --brand-gray: #6b7280;
+            --brand-gray-light: #9ca3af;
+            --brand-gray-lighter: #f3f4f6;
+        }
+
+        .accordion-content { display: none; }
+        .accordion-item.open .accordion-content { display: block; }
+
+        /* Enhanced Drop Shadows */
+        .enhanced-shadow {
+            box-shadow: 
+                0 1px 3px rgba(0,0,0,0.12),
+                0 8px 25px rgba(30,58,138,0.08),
+                0 16px 40px rgba(30,58,138,0.06);
+        }
+
+        .floating-card {
+            box-shadow: 
+                0 4px 6px rgba(0,0,0,0.07),
+                0 10px 25px rgba(30,58,138,0.1),
+                0 20px 40px rgba(30,58,138,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .floating-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 
+                0 8px 15px rgba(0,0,0,0.1),
+                0 25px 50px rgba(30,58,138,0.15),
+                0 40px 80px rgba(30,58,138,0.12);
+        }
+
+        /* 3D Tilt Effects for Phone Screenshots */
+        .phone-mockup {
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+            transform-style: preserve-3d;
+        }
+
+        .phone-mockup:hover {
+            transform: perspective(1000px) rotateY(-5deg) rotateX(5deg) translateZ(20px);
+        }
+
+        .phone-mockup:nth-child(2):hover {
+            transform: perspective(1000px) rotateY(2deg) rotateX(3deg) translateZ(15px);
+        }
+
+        .phone-mockup:nth-child(3):hover {
+            transform: perspective(1000px) rotateY(5deg) rotateX(-2deg) translateZ(25px);
+        }
+
+        /* Mesh Gradients for Sections */
+        .hero-mesh {
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(30,58,138,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(16,185,129,0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(139,92,246,0.2) 0%, transparent 50%),
+                linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .features-mesh {
+            background: 
+                radial-gradient(circle at 70% 30%, rgba(16,185,129,0.2) 0%, transparent 50%),
+                radial-gradient(circle at 30% 70%, rgba(29,78,216,0.2) 0%, transparent 50%),
+                linear-gradient(45deg, #f1f5f9 0%, #e2e8f0 100%);
+        }
+
+        .complete-features-mesh {
+            background: 
+                radial-gradient(circle at 60% 60%, rgba(139,92,246,0.15) 0%, transparent 50%),
+                radial-gradient(circle at 20% 20%, rgba(245,158,11,0.15) 0%, transparent 50%),
+                linear-gradient(225deg, #ffffff 0%, #f8fafc 100%);
+        }
+
+        /* Enhanced Typography */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-blue) 50%, var(--brand-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .highlight-box {
+            position: relative;
+        }
+
+        .highlight-box::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-green) 0%, var(--brand-blue) 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .highlight-box:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Icon Animations */
+        .animated-icon {
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pulse-animation {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .rotate-animation:hover {
+            transform: rotate(360deg);
+            transition: transform 0.6s ease;
+        }
+
+        .bounce-animation:hover {
+            animation: bounce 0.6s ease;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .7;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 53%, 80%, 100% {
+                transform: translate3d(0,0,0);
+            }
+            40%, 43% {
+                transform: translate3d(0,-8px,0);
+            }
+            70% {
+                transform: translate3d(0,-4px,0);
+            }
+            90% {
+                transform: translate3d(0,-2px,0);
+            }
+        }
+
+        /* Button Enhancements */
+        .enhanced-button {
+            background: linear-gradient(135deg, var(--brand-blue) 0%, var(--brand-purple) 100%);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .enhanced-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .enhanced-button:hover::before {
+            left: 100%;
+        }
+
+        .enhanced-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30,58,138,0.3);
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* FAQ Enhancements */
+        .accordion-item {
+            border: 1px solid rgba(229, 231, 235, 0.8);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            border-color: var(--brand-blue-light);
+            box-shadow: 0 4px 15px rgba(30,58,138,0.1);
+            transform: translateY(-2px);
+        }
+
+        .accordion-trigger {
+            padding: 20px 24px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-trigger:hover {
+            background: rgba(30,58,138,0.05);
+        }
+
+        .accordion-content {
+            padding: 0 24px 20px;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .accordion-item.open .accordion-content {
+            opacity: 1;
+            max-height: 200px;
+            display: block;
+        }
+
+        /* Loading Animation */
+        @keyframes shimmer {
+            0% {
+                background-position: -200px 0;
+            }
+            100% {
+                background-position: calc(200px + 100%) 0;
+            }
+        }
+
+        .skeleton {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200px 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        /* Backdrop Filter Support */
+        @supports (backdrop-filter: blur(10px)) {
+            .backdrop-blur {
+                backdrop-filter: blur(10px);
+                background: rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        /* Mobile Carousel System */
+        .phone-carousel-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .phone-carousel {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 16px;
+            padding: 0 20px 20px 20px;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .phone-carousel::-webkit-scrollbar {
+            display: none;
+        }
+
+        .phone-carousel .phone-mockup {
+            flex: 0 0 auto;
+            scroll-snap-align: center;
+            scroll-snap-stop: always;
+        }
+
+        /* Scroll Indicators */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 16px;
+            padding: 0 20px;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(30,58,138,0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .carousel-dot.active {
+            background: var(--brand-blue);
+            transform: scale(1.2);
+        }
+
+        /* Mobile Layout Fixes */
+        @media (max-width: 480px) {
+            /* Fix text and layout width issues */
+            .container {
+                padding: 0 16px !important;
+                max-width: 100% !important;
+            }
+
+            .hero h1 {
+                font-size: clamp(20px, 4vw, 28px) !important;
+                line-height: 1.3 !important;
+                padding: 0 !important;
+                margin-bottom: 16px !important;
+                text-align: center !important;
+            }
+
+            .hero p {
+                font-size: clamp(14px, 3.5vw, 18px) !important;
+                line-height: 1.5 !important;
+                padding: 0 !important;
+                margin-bottom: 24px !important;
+                text-align: center !important;
+            }
+
+            /* Fix hero section width */
+            .hero {
+                padding: 20px 16px !important;
+                width: 100% !important;
+                overflow: hidden !important;
+            }
+
+            /* Interactive Phone Showcase */
+            .phone-carousel .phone-mockup {
+                width: min(130px, 36vw);
+                height: auto;
+                aspect-ratio: 9/19.5;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                cursor: pointer;
+                position: relative;
+            }
+
+            /* Add interactive hotspots */
+            .phone-mockup::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 20px;
+                height: 20px;
+                background: var(--brand-blue);
+                border-radius: 50%;
+                opacity: 0;
+                animation: pulse-hotspot 2s infinite;
+                pointer-events: none;
+            }
+
+            .phone-mockup:hover::after,
+            .phone-mockup:focus::after {
+                opacity: 1;
+            }
+
+            @keyframes pulse-hotspot {
+                0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+                50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.3; }
+                100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+            }
+
+            /* Engaging carousel with better spacing */
+            .phone-carousel {
+                gap: 10px;
+                padding: 0 12px 16px 12px;
+                scroll-behavior: smooth;
+            }
+
+            /* Interactive feedback on scroll */
+            .phone-carousel .phone-mockup:active {
+                transform: scale(0.95);
+                transition: transform 0.1s ease;
+            }
+
+            /* Show peek of next image with gradient fade */
+            .phone-carousel::after {
+                content: '';
+                flex: 0 0 16px;
+                background: linear-gradient(to right, transparent, rgba(255,255,255,0.8));
+                pointer-events: none;
+            }
+        }
+
+        @media (max-width: 320px) {
+            .phone-carousel .phone-mockup {
+                width: min(120px, 35vw);
+            }
+
+            .phone-carousel {
+                gap: 10px;
+                padding: 0 12px 12px 12px;
+            }
+        }
+
+        /* Desktop and Tablet - Keep Original Layout */
+        @media (min-width: 769px) {
+            .phone-carousel-container {
+                display: contents;
+            }
+
+            .phone-carousel {
+                display: flex;
+                overflow: visible;
+                scroll-snap-type: none;
+                gap: 16px;
+                padding: 0;
+                justify-content: center;
+            }
+
+            .phone-carousel .phone-mockup {
+                flex: 0 0 auto;
+                width: 200px;
+                height: 410px;
+            }
+
+            .carousel-indicators {
+                display: none;
+            }
+        }
+
+        /* Hide carousel indicators on mobile since all 3 screenshots are visible */
+        @media (max-width: 768px) {
+            .carousel-indicators {
+                display: none !important;
+            }
+
+            .phone-carousel {
+                justify-content: center;
+                overflow: visible !important;
+                scroll-snap-type: none !important;
+            }
+
+            /* Apply mobile colors to sections */
+            #why-ledgify {
+                background: var(--features-mesh) !important;
+            }
+
+            #tax-ready {
+                background: var(--complete-features-mesh) !important;
+            }
+
+            #faq {
+                background: var(--features-mesh) !important;
+            }
+
+            /* Ensure proper mobile section styling */
+            #why-ledgify .container,
+            #tax-ready .container,
+            #faq .container {
+                padding: 0 16px !important;
+                max-width: 100% !important;
+            }
+
+            /* Mobile-specific article styling */
+            #why-ledgify article,
+            #tax-ready article {
+                margin-bottom: 16px !important;
+                padding: 16px !important;
+            }
+
+            /* Mobile FAQ styling */
+            #faq .accordion-item {
+                margin-bottom: 8px !important;
+                border-radius: 8px !important;
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            .phone-carousel .phone-mockup {
+                width: min(160px, 28vw);
+                height: auto;
+                aspect-ratio: 9/19.5;
+            }
+
+            .phone-carousel {
+                gap: 14px;
+                padding: 0 20px 20px 20px;
+            }
+        }
+
+        /* Mobile Performance Optimizations */
+        @media (max-width: 768px) {
+            /* Enable hardware acceleration for smoother animations */
+            .phone-mockup,
+            .floating-card,
+            #why-ledgify article,
+            #tax-ready article {
+                will-change: transform;
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+            }
+
+            /* Optimize font rendering for mobile */
+            body {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                text-rendering: optimizeLegibility;
+            }
+
+            /* Improve tap targets for mobile */
+            .accordion-trigger {
+                min-height: 44px;
+                touch-action: manipulation;
+            }
+
+            .enhanced-button {
+                min-height: 44px;
+                touch-action: manipulation;
+            }
+            /* Optimize 3D effects for mobile carousel */
+            .phone-carousel .phone-mockup:hover {
+                transform: translateY(-4px) scale(1.02);
+                transition: transform 0.2s ease;
+            }
+            
+            .phone-carousel .phone-mockup:active {
+                transform: scale(0.98);
+                transition: transform 0.1s ease;
+            }
+
+            /* Reduce card hover effects for better mobile performance */
+            .floating-card:hover {
+                transform: translateY(-4px) scale(1.01);
+                box-shadow: 
+                    0 4px 8px rgba(0,0,0,0.08),
+                    0 12px 25px rgba(30,58,138,0.1),
+                    0 20px 40px rgba(30,58,138,0.08);
+            }
+
+            #why-ledgify article:hover {
+                transform: translateY(-4px) scale(1.01);
+                box-shadow: 
+                    0 4px 8px rgba(0,0,0,0.08),
+                    0 12px 25px rgba(30,58,138,0.1),
+                    0 20px 40px rgba(30,58,138,0.08);
+            }
+
+            #tax-ready article:hover {
+                transform: translateY(-3px);
+                box-shadow: 
+                    0 3px 8px rgba(0,0,0,0.06),
+                    0 10px 20px rgba(139,92,246,0.08),
+                    0 15px 30px rgba(139,92,246,0.06);
+            }
+
+            /* Adjust gradient text for mobile readability */
+            .gradient-text {
+                background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-blue) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            /* Simplify mesh gradients for mobile performance */
+            .hero-mesh {
+                background: 
+                    radial-gradient(circle at 50% 50%, rgba(30,58,138,0.2) 0%, transparent 60%),
+                    linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            }
+
+            .features-mesh {
+                background: 
+                    radial-gradient(circle at 50% 50%, rgba(16,185,129,0.15) 0%, transparent 60%),
+                    linear-gradient(45deg, #f1f5f9 0%, #e2e8f0 100%);
+            }
+
+            .complete-features-mesh {
+                background: 
+                    radial-gradient(circle at 50% 50%, rgba(139,92,246,0.1) 0%, transparent 60%),
+                    linear-gradient(225deg, #ffffff 0%, #f8fafc 100%);
+            }
+
+            /* Optimize icon animations for mobile */
+            #why-ledgify .icon:hover {
+                transform: scale(1.05);
+                background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+                color: white;
+                box-shadow: 0 4px 15px rgba(16,185,129,0.2);
+            }
+
+            #tax-ready .icon:hover {
+                transform: scale(1.05);
+                background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+                color: white;
+                box-shadow: 0 3px 12px rgba(139,92,246,0.3);
+            }
+
+            /* Adjust accordion for mobile */
+            .accordion-item:hover {
+                transform: none;
+                box-shadow: 0 2px 8px rgba(30,58,138,0.08);
+            }
+
+            .accordion-trigger {
+                padding: 16px 20px;
+            }
+
+            .accordion-content {
+                padding: 0 20px 16px;
+            }
+
+            /* Optimize button effects for mobile */
+            .enhanced-button:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 6px 15px rgba(30,58,138,0.2);
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Further reduce effects for very small screens */
+            .phone-mockup:hover {
+                transform: translateY(-2px);
+            }
+
+            .floating-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 2px 8px rgba(30,58,138,0.1);
+            }
+
+            #why-ledgify article:hover,
+            #tax-ready article:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 2px 8px rgba(30,58,138,0.1);
+            }
+
+            /* Disable complex animations on very small screens */
+            #why-ledgify .icon:hover,
+            #tax-ready .icon:hover {
+                transform: none;
+                animation: none;
+            }
+
+            /* Simplify gradients further */
+            .hero-mesh,
+            .features-mesh,
+            .complete-features-mesh {
+                background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            }
+
+            /* Reduce accordion animations */
+            .accordion-item {
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: none;
+            }
+
+            .accordion-item:hover {
+                transform: none;
+                box-shadow: none;
+                border-color: var(--brand-blue-light);
+            }
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            /* Disable hover effects on touch devices */
+            .floating-card:hover,
+            #why-ledgify article:hover,
+            #tax-ready article:hover,
+            .accordion-item:hover {
+                transform: none;
+                box-shadow: inherit;
+            }
+
+            /* Keep basic visual feedback for touch */
+            .floating-card:active,
+            #why-ledgify article:active,
+            #tax-ready article:active {
+                transform: scale(0.98);
+            }
+
+            /* Simplify icon interactions for touch */
+            #why-ledgify .icon,
+            #tax-ready .icon {
+                animation: none;
+            }
+
+            /* Ensure buttons still have touch feedback */
+            .enhanced-button:active {
+                transform: scale(0.95);
+            }
+
+            /* Optimize carousel for touch */
+            .phone-carousel .phone-mockup:hover {
+                transform: none;
+            }
+
+            .phone-carousel .phone-mockup:active {
+                transform: scale(0.95);
+                transition: transform 0.1s ease;
+            }
+
+            /* Make carousel dots more touch-friendly */
+            .carousel-dot {
+                width: 12px;
+                height: 12px;
+                margin: 4px;
+                min-width: 44px;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .carousel-dot::before {
+                content: '';
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: rgba(30,58,138,0.3);
+                transition: all 0.3s ease;
+            }
+
+            .carousel-dot.active::before {
+                background: var(--brand-blue);
+                transform: scale(1.2);
+            }
+        }
+
+        /* High DPI display optimizations */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            /* Optimize gradients for high DPI screens */
+            .gradient-text {
+                background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-blue) 50%, var(--brand-purple) 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+        }
+
+        /* Mobile Conversion Features - Removed ugly sticky CTA */
+
+        /* Engaging scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Interactive feature cards */
+        @media (max-width: 768px) {
+            #why-ledgify article {
+                transform: translateY(20px);
+                opacity: 0;
+                transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            #why-ledgify article.animate-in {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            #why-ledgify article:nth-child(1) { transition-delay: 0.1s; }
+            #why-ledgify article:nth-child(2) { transition-delay: 0.2s; }
+            #why-ledgify article:nth-child(3) { transition-delay: 0.3s; }
+
+            /* Tap to reveal more content */
+            #why-ledgify article {
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+            }
+
+            #why-ledgify article::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+                transition: left 0.5s ease;
+            }
+
+            #why-ledgify article:active::before {
+                left: 100%;
+            }
+
+            /* Progress indicator */
+            .reading-progress {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 0;
+                height: 3px;
+                background: linear-gradient(90deg, var(--brand-green) 0%, var(--brand-blue) 100%);
+                z-index: 1000;
+                transition: width 0.1s ease;
+            }
+        }
+
+        /* Engagement micro-interactions */
+        .engagement-pulse {
+            animation: engagement-pulse 3s infinite;
+        }
+
+        @keyframes engagement-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Social proof animations */
+        .social-proof {
+            animation: float-in 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes float-in {
+            0% { opacity: 0; transform: translateY(20px) scale(0.9); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            /* Disable 3D transforms entirely */
+            .phone-mockup,
+            .floating-card,
+            #why-ledgify article,
+            #tax-ready article {
+                transform: none !important;
+            }
+        }
+    </style>
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-1017092923"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'AW-1017092923');
+    </script>
+    
+    <!-- Twitter conversion tracking base code -->
+    <script>
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+    },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='https://static.ads-twitter.com/uwt.js',
+    a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+    twq('config','qcj3m');
+    </script>
+    <!-- End Twitter conversion tracking base code -->
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 w-full border-b bg-white">
+        <div class="container flex h-16 items-center justify-between mx-auto px-4">
+            <div class="flex items-center gap-2">
+                <img src="/images/ledgerly_logo_transparent.png" alt="Ledgify Logo" class="h-10 w-auto">
+                <span class="text-xl font-bold">Ledgify</span>
+            </div>
+            <nav class="hidden md:flex gap-8">
+                <a href="#why-ledgify" class="text-sm font-medium hover:text-blue-600">Why Ledgify</a>
+                <a href="#faq" class="text-sm font-medium hover:text-blue-600">FAQ</a>
+                <a href="/terms-ledgify.html" class="text-sm font-medium hover:text-blue-600">Terms & Conditions</a>
+                <a href="/privacy-ledgify.html" class="text-sm font-medium hover:text-blue-600">Privacy Policy</a>
+            </nav>
+            <a href="https://apps.apple.com/us/app/ledgify/id6744262674" target="_blank" rel="noopener noreferrer" class="px-0 py-0 flex flex-col items-center enhanced-button" style="background: none; border-radius: 12px; padding: 8px; transition: all 0.3s ease;"><img src="/images/app-store-badge.png" alt="Download on the App Store" class="h-20 w-auto" style="margin-top:4px;"></a>
+        </div>
+    </header>
+
+    <main class="flex-1" role="main">
+        <!-- Hero Section -->
+        <section class="w-full py-0 md:py-2 lg:py-4 hero-mesh" aria-labelledby="hero-heading" style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw;">
+            <div class="container px-4 md:px-6 mx-auto">
+                <div class="grid gap-8 lg:grid-cols-2 lg:gap-12 items-center">
+                    <div class="space-y-6">
+
+                        <h1 id="hero-heading" class="text-3xl font-extrabold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
+                            <span class="gradient-text">Effortless Expense Tracking</span> <span class="text-black">and Personal Finance Powered by AI</span>
+                        </h1>
+                        <p class="text-gray-600 text-lg md:text-xl">
+                            Add transactions by text, image, or manual entry – all securely stored in your personal iCloud. Simplify your finances with intelligent automation.
+                        </p>
+                    </div>
+                    <div class="phone-carousel-container" role="img" aria-label="Ledgify app screenshots showing expense tracking interface">
+                        <div class="phone-carousel">
+                            <div class="relative enhanced-shadow rounded-3xl border border-gray-200 overflow-hidden phone-mockup">
+                                <img src="/images/ledgify-homepage.png" alt="Ledgify App Homepage - Main dashboard with expense overview" class="object-cover w-full h-full" loading="lazy">
+                            </div>
+                            <div class="relative enhanced-shadow rounded-3xl border border-gray-200 overflow-hidden phone-mockup">
+                                <img src="/images/ledgify-transactions.png" alt="Ledgify Transactions Screen - List of income and expenses with balance" class="object-cover w-full h-full" loading="lazy">
+                            </div>
+                            <div class="relative enhanced-shadow rounded-3xl border border-gray-200 overflow-hidden phone-mockup">
+                                <img src="/images/ledgify-transactions-detail.png" alt="Ledgify Transaction Detail Screen - Detailed view of individual transactions" class="object-cover w-full h-full" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="carousel-indicators">
+                            <span class="carousel-dot active" data-slide="0"></span>
+                            <span class="carousel-dot" data-slide="1"></span>
+                            <span class="carousel-dot" data-slide="2"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Why Ledgify Section -->
+        <section id="why-ledgify" class="w-full py-8 md:py-16 features-mesh" aria-labelledby="why-ledgify-heading">
+            <style>
+                /* Scoped styles for this section only */
+                #why-ledgify .container { max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+                #why-ledgify .eyebrow {
+                    display: inline-flex; align-items: center; gap: 8px;
+                    padding: 6px 12px; border-radius: 999px; font: 600 14px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+                    color: #065f46; background: #ecfdf5; border: 1px solid #a7f3d0;
+                }
+                #why-ledgify h2 { 
+                    margin: 12px 0 8px; 
+                    font: 700 clamp(24px, 4.5vw, 40px)/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; 
+                    letter-spacing: -0.01em; 
+                    color: #0a0a0a;
+                }
+                #why-ledgify p.lead { color: #6b7280; margin: 6px auto 0; max-width: 48ch; font-size: 18px; }
+                #why-ledgify .grid {
+                    display: grid; gap: 20px; margin-top: 32px;
+                    grid-template-columns: repeat(1, minmax(0,1fr));
+                }
+                @media (min-width: 640px) { #why-ledgify .grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 24px; } }
+                @media (min-width: 1024px) { #why-ledgify .grid { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px; } }
+                @media (max-width: 639px) { #why-ledgify .grid { gap: 16px; } }
+                #why-ledgify article {
+                    border: 1px solid #e5e7eb; border-radius: 16px; background: #fff; padding: 24px;
+                    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                }
+                #why-ledgify article:hover {
+                    transform: translateY(-8px) scale(1.02);
+                    box-shadow: 
+                        0 8px 15px rgba(0,0,0,0.1),
+                        0 25px 50px rgba(30,58,138,0.15),
+                        0 40px 80px rgba(30,58,138,0.12);
+                }
+                #why-ledgify .icon {
+                    height: 48px; width: 48px; display: inline-flex; align-items: center; justify-content: center;
+                    border-radius: 999px; background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%); 
+                    color: #065f46; font-size: 24px; margin-bottom: 16px;
+                    transition: all 0.3s ease;
+                }
+                #why-ledgify .icon:hover {
+                    transform: rotate(360deg) scale(1.1);
+                    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+                    color: white;
+                    box-shadow: 0 8px 25px rgba(16,185,129,0.3);
+                }
+                #why-ledgify h3 { 
+                    font: 600 20px/1.3 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; 
+                    margin: 4px 0 0; 
+                    color: #0a0a0a;
+                }
+                #why-ledgify article p { color: #6b7280; margin-top: 12px; line-height: 1.6; }
+                #why-ledgify ul { margin-top: 16px; padding-left: 0; list-style: none; }
+                #why-ledgify li { 
+                    display: flex; gap: 10px; align-items: flex-start; color: #374151; 
+                    font-size: 14px; margin-bottom: 8px; 
+                }
+                #why-ledgify .check { color: #059669; font-weight: 700; }
+            </style>
+
+            <div class="container">
+                <div class="header" style="text-align:center;">
+                    <span class="eyebrow">Why Ledgify</span>
+                                            <h2 id="why-ledgify-heading" class="highlight-box">Capabilities that simplify your personal finances</h2>
+                    <p class="lead">Automate entry, keep receipts organized, and retain full control of your data.</p>
+                </div>
+
+                <div class="grid">
+                    <article aria-labelledby="feature-ai-ocr-title">
+                        <div class="icon" aria-hidden="true">🤖</div>
+                        <h3 id="feature-ai-ocr-title">AI text entry + receipt OCR</h3>
+                        <p>
+                            Just type "Paid $29 for Canva Pro" or snap a photo of your receipt. Ledgify automatically creates the transaction with all the details.
+                        </p>
+                        <ul>
+                            <li><span class="check" aria-hidden="true">✓</span><span>Understands context; infers expense vs income</span></li>
+                            <li><span class="check" aria-hidden="true">✓</span><span>Smart categorization rules that learn over time</span></li>
+                        </ul>
+                    </article>
+
+                    <article aria-labelledby="feature-bank-title">
+                        <div class="icon" aria-hidden="true">🏦</div>
+                        <h3 id="feature-bank-title">Automated bank import</h3>
+                        <p>
+                            Connect your bank account to automatically import and categorize your transactions. No more manual entry for most purchases.
+                        </p>
+                        <ul>
+                            <li><span class="check" aria-hidden="true">✓</span><span>Eliminates most manual entry</span></li>
+                            <li><span class="check" aria-hidden="true">✓</span><span>Keeps your books up‑to‑date automatically</span></li>
+                        </ul>
+                    </article>
+
+                    <article aria-labelledby="feature-privacy-title">
+                        <div class="icon" aria-hidden="true">🔒</div>
+                        <h3 id="feature-privacy-title">Privacy‑first with your own iCloud</h3>
+                        <p>
+                            Your financial data stays private in your own iCloud, not on our servers. You own and control everything.
+                        </p>
+                        <ul>
+                            <li><span class="check" aria-hidden="true">✓</span><span>Works offline and syncs across your Apple devices</span></li>
+                            <li><span class="check" aria-hidden="true">✓</span><span>Full control with the ability to delete everything</span></li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tax Ready Section -->
+        <section id="tax-ready" class="complete-features-mesh" aria-labelledby="tax-ready-heading">
+            <style>
+                /* Scoped styles for this section only */
+                #tax-ready { 
+                    padding: 32px 16px; 
+                    background: linear-gradient(135deg, #fefbff 0%, #f8fafc 50%, #f0f9ff 100%);
+                    color: #0a0a0a; 
+                    position: relative;
+                }
+                #tax-ready::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 4px;
+                    background: linear-gradient(90deg, var(--brand-purple) 0%, var(--brand-blue) 50%, var(--brand-green) 100%);
+                }
+                #tax-ready .container { max-width: 1120px; margin: 0 auto; }
+                #tax-ready .eyebrow {
+                    display: inline-flex; align-items: center; gap: 8px;
+                    padding: 8px 16px; border-radius: 999px; font: 600 12px/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+                    color: white; 
+                    background: linear-gradient(135deg, var(--brand-purple) 0%, var(--brand-purple-light) 100%); 
+                    border: none;
+                    box-shadow: 0 2px 8px rgba(139,92,246,0.2);
+                }
+                #tax-ready h2 { 
+                    margin: 12px 0 8px; 
+                    font: 700 clamp(24px, 4.5vw, 40px)/1.2 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; 
+                    letter-spacing: -0.01em; 
+                    color: #0a0a0a;
+                }
+                #tax-ready p.lead { color: #525252; margin: 6px auto 0; max-width: 56ch; }
+                #tax-ready .grid { display: grid; gap: 16px; margin-top: 24px; grid-template-columns: repeat(1, minmax(0,1fr)); }
+                @media (min-width: 640px) { #tax-ready .grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; } }
+                @media (min-width: 1024px) { #tax-ready .grid { grid-template-columns: repeat(3, minmax(0,1fr)); gap: 24px; } }
+                @media (max-width: 639px) { #tax-ready .grid { gap: 14px; } }
+                #tax-ready article {
+                    border: 1px solid rgba(139,92,246,0.1); 
+                    border-radius: 16px; 
+                    background: linear-gradient(135deg, #ffffff 0%, #fefbff 100%); 
+                    padding: 20px;
+                    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    position: relative;
+                }
+                #tax-ready article::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    height: 2px;
+                    background: linear-gradient(90deg, var(--brand-purple) 0%, var(--brand-blue) 100%);
+                    border-radius: 16px 16px 0 0;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                }
+                #tax-ready article:hover {
+                    transform: translateY(-6px) scale(1.01);
+                    border-color: var(--brand-purple-light);
+                    box-shadow: 
+                        0 6px 12px rgba(0,0,0,0.08),
+                        0 20px 40px rgba(139,92,246,0.12),
+                        0 30px 60px rgba(139,92,246,0.08);
+                }
+                #tax-ready article:hover::before {
+                    opacity: 1;
+                }
+                #tax-ready .icon {
+                    height: 44px; width: 44px; display: inline-flex; align-items: center; justify-content: center;
+                    border-radius: 999px; background: linear-gradient(135deg, #f4f4f5 0%, #e2e8f0 100%); 
+                    color: #111827; font-size: 20px; margin-bottom: 10px;
+                    transition: all 0.3s ease;
+                    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+                }
+                #tax-ready .icon:hover {
+                    animation: bounce 0.6s ease;
+                    background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+                    color: white;
+                    transform: scale(1.1);
+                    box-shadow: 0 6px 20px rgba(139,92,246,0.4);
+                }
+                #tax-ready h3 { font: 600 18px/1.3 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; margin: 4px 0 0; }
+                #tax-ready article p { color: #525252; margin-top: 8px; }
+                #tax-ready ul { margin-top: 12px; padding-left: 0; list-style: none; }
+                #tax-ready li { display: flex; gap: 8px; align-items: flex-start; color: #3f3f46; font-size: 14px; }
+                #tax-ready .check { color: #059669; font-weight: 700; }
+            </style>
+
+            <div class="container">
+                <div class="header" style="text-align:center;">
+                    <span class="eyebrow">More to love</span>
+                                            <h2 id="tax-ready-heading" class="highlight-box">Complete personal finance features</h2>
+                    <p class="lead">From invoices to reports and secure backups—Ledgify covers the essentials so tax time is painless.</p>
+                </div>
+
+                <div class="grid">
+                    <article aria-labelledby="feature-invoices-title">
+                        <div class="icon" aria-hidden="true">🧾</div>
+                        <h3 id="feature-invoices-title">Professional invoicing</h3>
+                        <p>Create branded invoices with line items and terms. Share instantly as polished PDFs.</p>
+                        <ul>
+                            <li><span class="check" aria-hidden="true">✓</span><span>Company logo, taxes, and payment terms</span></li>
+                            <li><span class="check" aria-hidden="true">✓</span><span>Native Share Sheet for quick sending</span></li>
+                        </ul>
+                    </article>
+
+                    <article aria-labelledby="feature-reports-title">
+                        <div class="icon" aria-hidden="true">📊</div>
+                        <h3 id="feature-reports-title">Reports & analytics</h3>
+                        <p>See P&L, Schedule C, cash flow, and category trends to stay on top of your business.</p>
+                        <ul>
+                            <li><span class="check" aria-hidden="true">✓</span><span>Instant dashboards and vendor summaries</span></li>
+                            <li><span class="check" aria-hidden="true">✓</span><span>Monthly and quarterly views</span></li>
+                        </ul>
+                    </article>
+
+                    <article aria-labelledby="feature-exports-title">
+                        <div class="icon" aria-hidden="true">⬇️</div>
+                        <h3 id="feature-exports-title">Data exports</h3>
+                        <p>Export CSV or PDF with custom date ranges and category filters. No vendor lock‑in.</p>
+                        <ul>
+                            <li><span class="check" aria-hidden="true">✓</span><span>Share with your accountant in one step</span></li>
+                            <li><span class="check" aria-hidden="true">✓</span><span>Backup your books anytime</span></li>
+                        </ul>
+                    </article>
+
+                    <article aria-labelledby="feature-privacy-title">
+                        <div class="icon" aria-hidden="true">🔒</div>
+                        <h3 id="feature-privacy-title">Privacy‑first security</h3>
+                        <p>Your financial data lives in your private iCloud container with end‑to‑end encryption.</p>
+                        <ul>
+                            <li><span class="check" aria-hidden="true">✓</span><span>You own your data—full delete available</span></li>
+                            <li><span class="check" aria-hidden="true">✓</span><span>No third‑party servers storing your books</span></li>
+                        </ul>
+                    </article>
+
+                    <article aria-labelledby="feature-budgeting-title">
+                        <div class="icon" aria-hidden="true">💰</div>
+                        <h3 id="feature-budgeting-title">Smart budgeting & goals</h3>
+                        <p>Set monthly budgets, track spending categories, and create financial goals with intelligent progress tracking.</p>
+                        <ul>
+                            <li><span class="check" aria-hidden="true">✓</span><span>Visual budget tracking with remaining balances</span></li>
+                            <li><span class="check" aria-hidden="true">✓</span><span>Goal setting with automatic progress updates</span></li>
+                        </ul>
+                    </article>
+
+                    <article aria-labelledby="feature-offline-title">
+                        <div class="icon" aria-hidden="true">📶</div>
+                        <h3 id="feature-offline-title">Reliable offline‑first</h3>
+                        <p>Capture receipts and entries anywhere. Sync resumes automatically when you're back online.</p>
+                        <ul>
+                            <li><span class="check" aria-hidden="true">✓</span><span>Works seamlessly across your Apple devices</span></li>
+                            <li><span class="check" aria-hidden="true">✓</span><span>No internet required to stay productive</span></li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="w-full py-8 md:py-16 features-mesh">
+            <div class="container px-4 md:px-6 mx-auto">
+                <div class="flex flex-col items-center justify-center space-y-4 text-center">
+                    <div class="space-y-2 max-w-3xl">
+                        <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl gradient-text">
+                            Frequently Asked Questions
+                        </h2>
+                        <p class="text-gray-600 text-lg md:text-xl">
+                            Find answers to common questions about Ledgify
+                        </p>
+                    </div>
+                </div>
+                <div class="mx-auto max-w-3xl mt-8">
+                    <div id="faq-accordion">
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-3 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                How does the AI transaction entry work?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-3">
+                                Ledgify uses AI to understand transactions whether you type them in text format, upload an image of a receipt, or manually enter transaction details. The AI extracts the relevant information like amount, date, category, and vendor, saving you time on manual data entry.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                Is my data secure?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                Absolutely. Ledgify stores all your financial data in your personal iCloud account, not on our servers. This means you maintain complete control and privacy of your information. We use Apple Sign In for authentication, which provides enhanced security and privacy.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                What is the pricing structure?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                Ledgify is available on the App Store with a 7-day free trial. After the trial, it's just $1 per week for full access to all features including unlimited transactions, receipt scanning, AI categorization, and tax-ready reports.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                How is my data privacy protected?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                We take data privacy seriously. All your financial data is stored securely in your personal iCloud account, not on our servers. Your data is never shared with third parties without your explicit consent, and you can delete your data at any time.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                Can I export my data?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                Yes, you can export your financial data in various formats including CSV, PDF, and Excel. This makes it easy to share information with your accountant or import into other financial software.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                What devices does Ledgify support?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                Ledgify is designed for iOS devices and works seamlessly across your iPhone, iPad, and Mac. Your data syncs automatically through iCloud, so you can access your financial information from any of your Apple devices.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                How accurate is the AI receipt scanning?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                Our AI technology has been trained on millions of receipts and achieves over 95% accuracy in extracting key information like amounts, dates, and vendor names. You can always review and edit any extracted data before saving.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                Can I use Ledgify for my business?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                Absolutely! Ledgify is perfect for small businesses, freelancers, contractors, and self-employed individuals. The app helps you track business expenses, categorize transactions, and generate reports needed for tax purposes.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                What happens if I cancel my subscription?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                You can cancel your subscription at any time through the App Store. Your data remains safe in your iCloud account, and you can continue to view your existing transactions. To add new transactions, you'll need to resubscribe.
+                            </div>
+                        </div>
+                        <div class="accordion-item border-b">
+                            <button class="accordion-trigger w-full text-left py-4 font-semibold flex justify-between items-center" onclick="toggleAccordion(this)">
+                                How do I get support if I have issues?
+                                <span>+</span>
+                            </button>
+                            <div class="accordion-content text-gray-600 pb-4">
+                                Users can email me directly through the app for support. I provide personalized assistance and respond to all inquiries to help you get the most out of Ledgify.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer class="w-full py-6 md:py-8 border-t bg-gray-50">
+        <div class="container px-4 md:px-6 mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <img src="/images/ledgerly_logo_transparent.png" alt="Ledgify Logo" class="h-8 w-auto">
+                        <span class="text-lg font-bold">Ledgify</span>
+                    </div>
+                    <p class="text-gray-600 mb-4 max-w-md">
+                        Transform your personal finances with AI-powered expense tracking. Perfect for small businesses, freelancers, and contractors.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://apps.apple.com/us/app/ledgify/id6744262674" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-blue-600 transition-all duration-300 enhanced-button" aria-label="Download on App Store" style="background: none; border-radius: 8px; padding: 4px;">
+                            <img src="/images/app-store-badge.png" alt="Download on the App Store" class="h-12 w-auto">
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Product</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#why-ledgify" class="text-gray-600 hover:text-blue-600 transition-colors">Features</a></li>
+                        <li><a href="#faq" class="text-gray-600 hover:text-blue-600 transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-gray-900 mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="/terms-ledgify.html" class="text-gray-600 hover:text-blue-600 transition-colors">Terms of Service</a></li>
+                        <li><a href="/privacy-ledgify.html" class="text-gray-600 hover:text-blue-600 transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-600">© 2025 Ledgify. All rights reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="/sitemap.xml" class="text-sm text-gray-600 hover:text-blue-600">Sitemap</a>
+                    <a href="/robots.txt" class="text-sm text-gray-600 hover:text-blue-600">Robots.txt</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Conversion Elements -->
+    <div class="reading-progress"></div>
+
+    <script>
+        function toggleAccordion(button) {
+            const item = button.parentElement;
+            item.classList.toggle('open');
+            const content = item.querySelector('.accordion-content');
+            const span = button.querySelector('span');
+            if (item.classList.contains('open')) {
+                span.textContent = '-';
+            } else {
+                span.textContent = '+';
+            }
+        }
+
+        // Mobile Engagement System
+        document.addEventListener('DOMContentLoaded', function() {
+            // Reading progress bar
+            const progressBar = document.querySelector('.reading-progress');
+            
+            function updateReadingProgress() {
+                const scrollTop = window.scrollY;
+                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = (scrollTop / docHeight) * 100;
+                
+                if (progressBar) {
+                    progressBar.style.width = Math.min(progress, 100) + '%';
+                }
+            }
+            
+            window.addEventListener('scroll', updateReadingProgress);
+            
+            // Scroll reveal animations
+            function revealOnScroll() {
+                const reveals = document.querySelectorAll('.scroll-reveal');
+                const featureCards = document.querySelectorAll('#why-ledgify article');
+                
+                reveals.forEach(reveal => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    const elementVisible = 150;
+                    
+                    if (elementTop < window.innerHeight - elementVisible) {
+                        reveal.classList.add('revealed');
+                    }
+                });
+                
+                // Animate feature cards on mobile
+                if (window.innerWidth <= 768) {
+                    featureCards.forEach(card => {
+                        const cardTop = card.getBoundingClientRect().top;
+                        if (cardTop < window.innerHeight - 100) {
+                            card.classList.add('animate-in');
+                        }
+                    });
+                }
+            }
+            
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Initial check
+            
+            // Interactive phone mockup engagement
+            const phoneMockups = document.querySelectorAll('.phone-mockup');
+            phoneMockups.forEach((mockup, index) => {
+                mockup.addEventListener('click', function() {
+                    // Add engagement pulse
+                    this.classList.add('engagement-pulse');
+                    
+                    // Show feature callout
+                    showFeatureCallout(index);
+                    
+                    // Remove pulse after animation
+                    setTimeout(() => {
+                        this.classList.remove('engagement-pulse');
+                    }, 3000);
+                });
+            });
+            
+            function showFeatureCallout(index) {
+                const callouts = [
+                    'AI Chat: Add expenses by typing naturally!',
+                    'Track Everything: Income, expenses, and balance in one view',
+                    'Smart Budgeting: Set goals and track progress automatically'
+                ];
+                
+                if (callouts[index] && window.innerWidth <= 768) {
+                    // Create temporary callout
+                    const callout = document.createElement('div');
+                    callout.className = 'feature-callout';
+                    callout.textContent = callouts[index];
+                    callout.style.cssText = `
+                        position: fixed;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        background: var(--brand-blue);
+                        color: white;
+                        padding: 12px 20px;
+                        border-radius: 25px;
+                        font-size: 14px;
+                        font-weight: 600;
+                        z-index: 1001;
+                        animation: callout-appear 0.5s ease;
+                        box-shadow: 0 4px 20px rgba(30,58,138,0.3);
+                        max-width: 280px;
+                        text-align: center;
+                    `;
+                    
+                    document.body.appendChild(callout);
+                    
+                    // Remove after 3 seconds
+                    setTimeout(() => {
+                        callout.style.animation = 'callout-disappear 0.3s ease forwards';
+                        setTimeout(() => callout.remove(), 300);
+                    }, 3000);
+                }
+            }
+            
+            // Add callout animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes callout-appear {
+                    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+                    100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                }
+                @keyframes callout-disappear {
+                    0% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                    100% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Simple engagement tracking (no pulsating)
+            // Removed pulsating animation from App Store buttons
+            
+        });
+
+        // Mobile Carousel Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.phone-carousel');
+            const indicators = document.querySelectorAll('.carousel-dot');
+            
+            if (!carousel || !indicators.length) return;
+            
+            // Update active indicator based on scroll position
+            function updateActiveIndicator() {
+                const scrollLeft = carousel.scrollLeft;
+                const itemWidth = carousel.querySelector('.phone-mockup').offsetWidth + 16; // width + gap
+                const activeIndex = Math.round(scrollLeft / itemWidth);
+                
+                indicators.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === activeIndex);
+                });
+            }
+            
+            // Scroll to specific slide when indicator is clicked
+            indicators.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    const itemWidth = carousel.querySelector('.phone-mockup').offsetWidth + 16;
+                    carousel.scrollTo({
+                        left: itemWidth * index,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // Update indicators on scroll (throttled for performance)
+            let scrollTimeout;
+            carousel.addEventListener('scroll', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(updateActiveIndicator, 100);
+            });
+            
+            // Initial indicator update
+            updateActiveIndicator();
+            
+            // Handle resize events
+            window.addEventListener('resize', () => {
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(updateActiveIndicator, 150);
+            });
+        });
+    </script>
+    
+    <!-- Twitter conversion tracking event code -->
+    <script type="text/javascript">
+      // Insert Twitter Event ID
+      twq('event', 'tw-qcj3m-qcj3p', {
+        conversion_id: null // use this to pass a unique ID for the conversion event for deduplication (e.g. order id '1a2b3c')
+      });
+    </script>
+    <!-- End Twitter conversion tracking event code -->
+</body>
+</html> 

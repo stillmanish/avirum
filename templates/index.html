@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Mind Sharpener</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Math Mind Sharpener</h1>
+            <p>Keep your mind sharp with grade-appropriate math puzzles!</p>
+        </header>
+
+        <div class="game-container">
+            <div id="welcome-screen" class="screen active">
+                <h2>Welcome to Math Mind Sharpener!</h2>
+                <p>Challenge yourself with 6 math problems per session</p>
+                <div class="difficulty-selector">
+                    <h3>Select Difficulty:</h3>
+                    <div class="difficulty-buttons">
+                        <button class="difficulty-btn" data-difficulty="easy">Easy (5th Grade)</button>
+                        <button class="difficulty-btn" data-difficulty="hard">Hard (6-7th Grade)</button>
+                        <button class="difficulty-btn" data-difficulty="hardest">Hardest (8th Grade)</button>
+                    </div>
+                </div>
+                <div class="loading-spinner" id="loading-spinner">
+                    <div class="spinner"></div>
+                    <p>Generating problems...</p>
+                </div>
+            </div>
+
+            <div id="game-screen" class="screen">
+                <div class="problem-counter">
+                    Problem <span id="current-problem">1</span> of 6
+                </div>
+                <div class="problem-container">
+                    <div class="problem" id="problem-text"></div>
+                    <div class="answer-input">
+                        <input type="text" id="answer-input" placeholder="Your answer...">
+                        <button id="submit-btn">Submit</button>
+                    </div>
+                </div>
+                <div class="problem-navigation">
+                    <button id="prev-btn" disabled>Previous</button>
+                    <button id="next-btn" disabled>Next</button>
+                </div>
+            </div>
+
+            <div id="results-screen" class="screen">
+                <h2>Session Complete!</h2>
+                <div class="score-container">
+                    <p>You completed <span id="score">0</span> out of 6 problems correctly!</p>
+                </div>
+                <div class="results-container" id="results-container">
+                    <!-- Problem results will be inserted here -->
+                </div>
+                <button id="play-again-btn">Play Again</button>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="/timeless_words.html">TimelessWords</a></li>
+                <li><a href="/timeless_words.html">TimelessWords Terms of Use</a></li>
+            </ul>
+        </nav>
+
+        <footer>
+            <p>Powered by Claude & Math Mind Sharpener</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
