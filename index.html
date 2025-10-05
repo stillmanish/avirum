@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AvirumApps</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.4;
+        }
+        
+        .header {
+            border-bottom: 1px solid #000000;
+            padding: 20px 0;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 24px;
+            color: #000000;
+            text-decoration: none;
+        }
+        
+        .nav {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .nav-link {
+            color: #000000;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        
+        .nav-link:hover {
+            color: #000000;
+            text-decoration: underline;
+        }
+        
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #000000;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: #000000;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .about-section {
+            border-top: 1px solid #000000;
+            padding: 50px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        .about-content p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            font-size: 16px;
+        }
+        
+        .contact-info a {
+            color: #000000;
+            text-decoration: underline;
+        }
+        
+        .app-section {
+            border-top: 1px solid #000000;
+        }
+        
+        .app-row {
+            border-top: 1px solid #000000;
+            padding: 50px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+        
+        .app-row:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+        
+        .app-info {
+            flex: 1;
+        }
+        
+        .app-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .app-category {
+            font-size: 16px;
+            color: #666666;
+        }
+        
+        .app-row:hover .app-category {
+            color: #cccccc;
+        }
+        
+        .app-description {
+            max-width: 400px;
+            text-align: right;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        
+        @media (max-width: 768px) {
+            .app-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .app-description {
+                text-align: left;
+                max-width: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .nav {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="#" class="logo">AvirumApps</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Simple Apps for Everyday Life</h1>
+            <p>Making technology more accessible through straightforward, easy-to-use applications.</p>
+        </section>
+
+        <section class="about-section">
+            <div class="about-content">
+                <p>Hi, I'm a solo developer who creates simple, useful apps for everyday tasks. I leverage modern AI tools and technologies that are becoming commonplace to build straightforward applications that solve real problems. My focus is on making things that just work, without unnecessary complexity, and have a little fun in the process.</p>
+                <div class="contact-info">
+                    <a href="mailto:avirumllc@gmail.com">avirumllc@gmail.com</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="app-section">
+            <div class="app-row">
+                <div class="app-info">
+                    <div class="app-name">TracePlay ABC</div>
+                    <div class="app-category">Educational app for kids</div>
+                </div>
+                <div class="app-description">
+                    An interactive learning app that helps children learn the alphabet through tracing exercises and engaging activities.
+                </div>
+            </div>
+            
+            <div class="app-row">
+                <div class="app-info">
+                    <div class="app-name">Godfrey's Crusade</div>
+                    <div class="app-category">Adventure game</div>
+                </div>
+                <div class="app-description">
+                    An epic adventure game where players embark on a medieval quest filled with challenges, puzzles, and heroic battles.
+                </div>
+            </div>
+            
+            <div class="app-row">
+                <div class="app-info">
+                    <div class="app-name">TimelessWords</div>
+                    <div class="app-category">Education app</div>
+                </div>
+                <div class="app-description">
+                    A comprehensive vocabulary building app that helps users expand their language skills through curated word lists and exercises.
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
